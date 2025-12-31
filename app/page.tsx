@@ -1,9 +1,31 @@
 import Hero from '@/components/ui/layout/Hero'
 import Sponsors from '@/components/ui/layout/Sponsors'
 import { client } from '@/lib/sanity'
+import { urlFor } from '@/lib/sanity'
 
 async function getHomeData() {
-  return await client.fetch(`*[_type == "page" && slug.current == "home"][0]`)
+  const query = `{
+    "page": *[_type == "page" && slug.current == "home"][0] {
+      ...,
+      heroImage,
+      logo
+    },
+    "stats": *[_type == "stat"] | order(order asc),
+    "sponsors": *[_type == "sponsor"] | order(order asc) {
+      ...,
+      logo
+    },
+    "socialMedia": *[_type == "socialMedia"] | order(order asc) {
+      ...,
+      icon
+    },
+    "siteSettings": *[_type == "siteSettings"][0] {
+      logo,
+      footerBackground
+    }
+  }`
+  
+  return client.fetch(query)
 }
 
 const heroContent = {
@@ -46,6 +68,10 @@ const sponsorsContent = {
 
 export default async function Home() {
   const data = await getHomeData()
+  
+  // Now you can use urlFor() to get image URLs:
+  // urlFor(data.page.heroImage).url()
+  // urlFor(data.sponsors[0].logo).width(200).url()
   
   return (
     <main className="min-h-screen">
