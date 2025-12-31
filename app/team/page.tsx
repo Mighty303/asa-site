@@ -2,6 +2,9 @@ import Hero from '@/components/ui/layout/Hero'
 import { client, urlFor } from '@/lib/sanity'
 import Image from 'next/image'
 
+// Revalidate the page every 60 seconds
+export const revalidate = 60
+
 async function getTeamData() {
   const query = `{
     "page": *[_type == "teamPage" && slug.current == "team"][0] {
@@ -15,15 +18,21 @@ async function getTeamData() {
     }
   }`
   
-  return client.fetch(query)
+  try {
+    const data = await client.fetch(query)
+    return data
+  } catch (error) {
+    console.error('Error fetching team data:', error)
+    return { page: null, presidents: [] }
+  }
 }
 
 export default async function Team() {
   const data = await getTeamData()
   
   const heroContent = {
-    tagline: data.page.heroTagline,
-    description: data.page.heroDescription
+    tagline: data.page?.heroTagline || 'Meet Our Team',
+    description: data.page?.heroDescription || 'Learn more about the ASA team members'
   }
   
   return (
@@ -31,7 +40,7 @@ export default async function Team() {
       <Hero content={heroContent} />
       <section className="relative min-h-screen">
         <div className="container flex flex-col-reverse md:flex-row justify-center items-center gap-8 mx-auto px-4 pt-32 pb-20">
-          {data.page.fullTeamImage && (
+          {data.page?.fullTeamImage && (
             <Image 
               src={urlFor(data.page.fullTeamImage).url()} 
               alt="Team" 
@@ -42,7 +51,7 @@ export default async function Team() {
           <h2 className="text-4xl font-bold uppercase my-12 text-[#28599E]">ASA 2025/2026 TEAM</h2>
         </div>
         <div className="container flex flex-col-reverse md:flex-row-reverse justify-center items-center gap-8 mx-auto px-4 pt-32 pb-20">
-          {data.page.executiveTeamImage && (
+          {data.page?.executiveTeamImage && (
             <Image 
               src={urlFor(data.page.executiveTeamImage).url()} 
               alt="Executive Team" 
@@ -81,7 +90,7 @@ export default async function Team() {
       <section className='min-h-screen flex flex-col items-center mx-auto w-[90%] mb-12'>
         <h2 className="text-4xl font-bold uppercase my-12 text-[#28599E]">Event Team</h2>
         <div className="container flex flex-col-reverse md:flex-row-reverse justify-center items-center gap-8 mx-auto px-4 pt-32 pb-20">
-          {data.page.executiveTeamImage && (
+          {data.page?.executiveTeamImage && (
             <Image 
               src={'/assets/teams/event/guilherme.jpg'} 
               alt="Executive Team" 

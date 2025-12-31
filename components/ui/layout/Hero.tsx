@@ -16,7 +16,7 @@ export default function Hero({ content }: HeroProps) {
       {/* Background image */}
       <div className="absolute inset-0">
         <Image
-          src="/assets/hero-background.jpg"
+          src="/assets/hero-bg.svg"
           alt="Mountain background"
           fill
           className="object-cover"

@@ -30,7 +30,7 @@ async function uploadAssets() {
     console.log('Uploading logo...')
     const logo = await uploadImage(
       path.join(assetsDir, 'asa-logo.png'),
-      'asa-logo.png'
+      'asa-logo.svg'
     )
 
     // Upload hero background
