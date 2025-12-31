@@ -29,7 +29,7 @@ export default function Hero({ content }: HeroProps) {
         <div className="grid md:grid-cols-2 gap-12 items-center min-h-[80vh]">
           {/* Left side - ASPIRE. SHARE. ACHIEVE. */}
           <div className="text-left">
-            <h1 className="text-7xl md:text-8xl font-bold text-white leading-tight">
+            <h1 className="text-5xl md:text-8xl font-bold text-white leading-tight">
               {content.tagline.map((line, index) => (
                 <div key={index} className={index === 1 ? 'pl-6' : index === 2 ? 'pl-12' : ''}>
                   {line}

@@ -195,7 +195,7 @@ function CarouselPrevious({
       onClick={scrollPrev}
       {...props}
     >
-      <ChevronLeft className="size-8" />
+      <ChevronLeft className="size-14 text-[#28599E]" />
       <span className="sr-only">Previous slide</span>
     </Button>
   )
@@ -225,7 +225,7 @@ function CarouselNext({
       onClick={scrollNext}
       {...props}
     >
-      <ChevronRight className="size-8" />
+      <ChevronRight className="size-14 text-[#28599E]" />
       <span className="sr-only">Next slide</span>
     </Button>
   )

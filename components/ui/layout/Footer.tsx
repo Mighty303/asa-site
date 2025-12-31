@@ -24,9 +24,15 @@ export default function Footer() {
               <Link href="/tax-program" className="hover:underline hover:underline-offset-6 hover:decoration-2">Tax Program</Link>
               <Link href="/contact-us" className="hover:underline hover:underline-offset-6 hover:decoration-2">Contact Us</Link>
               <div className="flex gap-4">
-                <Image className='w-8 h-8' src="/assets/footer/instagram-logo.jpg" width={32} height={32} alt="Instagram Logo" />
-                <Image className='w-8 h-8' src="/assets/footer/linkedin-logo.jpg" width={32} height={32} alt="Linkedin Logo" />
-                <Image className='w-8 h-8' src="/assets/footer/tiktok-logo.jpg" width={32} height={32} alt="Tiktok Logo" />
+                <Link href="https://www.instagram.com/sfuasa/" target="_blank" rel="noopener noreferrer">
+                  <Image className='w-8 h-8' src="/assets/footer/instagram-logo.jpg" width={32} height={32} alt="Instagram Logo" />
+                </Link>
+                <Link href="https://www.linkedin.com/company/sfu-accounting-student-association/" target="_blank" rel="noopener noreferrer">
+                  <Image className='w-8 h-8' src="/assets/footer/linkedin-logo.jpg" width={32} height={32} alt="Linkedin Logo" />
+                </Link>
+                <Link href="https://www.tiktok.com/@sfuasa" target="_blank" rel="noopener noreferrer">
+                  <Image className='w-8 h-8' src="/assets/footer/tiktok-logo.jpg" width={32} height={32} alt="Tiktok Logo" />
+                </Link>
               </div>
             </div>
         </div>

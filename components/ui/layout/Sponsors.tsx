@@ -31,7 +31,7 @@ interface SponsorsProps {
 
 export default function Sponsors({ content }: SponsorsProps) {
   return (
-    <section className="my-28 bg-white flex flex-col items-center">
+    <section className="mx-12 my-28 bg-white flex flex-col items-center">
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-3 gap-12">
           {content.stats.map((stat, index) => (
@@ -63,10 +63,10 @@ export default function Sponsors({ content }: SponsorsProps) {
             <CarouselItem key={index} className="">
               <div className="p-4">
                 <a 
-                  href={sponsor.url} 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-center h-32 hover:opacity-80 transition-opacity"
+                  // href={sponsor.url} 
+                  // target="_blank" 
+                  // rel="noopener noreferrer"
+                  className="flex items-center justify-center h-32 transition-opacity"
                 >
                   <Image
                     src={sponsor.logo}
