@@ -18,13 +18,13 @@ export default function ContactUs() {
         <h2 className="text-4xl md:text-5xl font-bold text-[#28599E] mb-6">
           Contact Us
         </h2>
-        <p className="text-xl md:text-2xl font-semibold mb-4">
+        <p className="text-lg md:text-xl">
           Thank you for contacting the SFU Accounting Student Association.
         </p>
-        <p className="text-xl md:text-2xl font-semibold mb-8">
+        <p className="text-lg md:text-xl">
           Please submit your inquiry using the form below.
         </p>
-        <p className="text-xl md:text-2xl font-semibold">
+        <p className="text-lg md:text-xl">
           You can expect a response in 1-7 business days.
         </p>
       </section>
