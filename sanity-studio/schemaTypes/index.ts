@@ -1,4 +1,6 @@
 import { defineField, defineType, type SchemaTypeDefinition } from 'sanity'
+import { teamMember } from './teamMember.js'
+import { teamPage } from './teamPage.js'
 
 const page = defineType({
   name: 'page',
@@ -189,4 +191,12 @@ const siteSettings = defineType({
   ],
 })
 
-export const schemaTypes = [page, stat, sponsor, socialMedia, siteSettings]
+export const schemaTypes: SchemaTypeDefinition[] = [
+  page,
+  stat,
+  sponsor,
+  socialMedia,
+  siteSettings,
+  teamMember,
+  teamPage
+]

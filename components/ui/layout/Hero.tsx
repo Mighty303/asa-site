@@ -2,7 +2,7 @@ import Image from "next/image"
 
 interface HeroContent {
   tagline: string[]
-  heading: string
+  heading?: string
   description: string
 }
 
@@ -40,9 +40,11 @@ export default function Hero({ content }: HeroProps) {
 
           {/* Right side - WHO WE ARE */}
           <div className="text-white">
-            <h2 className="text-4xl md:text-5xl font-bold text-blue-900 mb-6">
-              {content.heading}
-            </h2>
+            {content.heading && (
+              <h2 className="text-4xl md:text-5xl font-bold text-blue-900 mb-6">
+                {content.heading}
+              </h2>
+            )}
             <p className="text-lg md:text-xl leading-relaxed">
               {content.description}
             </p>

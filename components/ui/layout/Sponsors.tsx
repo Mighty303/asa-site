@@ -1,3 +1,5 @@
+"use client"
+
 import Image from "next/image"
 import {
   Carousel,
@@ -6,6 +8,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel"
+import Autoplay from "embla-carousel-autoplay"
 
 interface Stat {
   number: string
@@ -55,8 +58,14 @@ export default function Sponsors({ content }: SponsorsProps) {
         className="w-full max-w-5xl mb-8"
         opts={{
           align: "start",
-          loop: true,
+          loop: true
         }}
+        plugins={[Autoplay(
+          {
+            delay: 3000,
+            stopOnInteraction: false
+          }
+        )]}
       >
         <CarouselContent>
           {content.sponsors?.map((sponsor, index) => (

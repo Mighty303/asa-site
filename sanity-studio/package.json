@@ -7,7 +7,8 @@
     "build": "sanity build",
     "seed": "tsx seed-data.ts",
     "seed:assets": "tsx seed-with-assets.ts",
-    "deploy": "sanity deploy"
+    "deploy": "sanity deploy",
+    "seed:team": "tsx seed-team-data.ts"
   },
   "dependencies": {
     "@sanity/client": "^7.13.2",
