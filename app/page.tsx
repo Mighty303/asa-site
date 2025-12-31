@@ -1,22 +1,56 @@
+import Hero from '@/components/ui/layout/Hero'
+import Sponsors from '@/components/ui/layout/Sponsors'
 import { client } from '@/lib/sanity'
 
 async function getHomeData() {
   return await client.fetch(`*[_type == "page" && slug.current == "home"][0]`)
 }
 
+const heroContent = {
+  tagline: ['ASPIRE.', 'SHARE.', 'ACHIEVE.'],
+  heading: 'WHO WE ARE',
+  description: 'The SFU Accounting Student Association (ASA) is an organization made up of highly-dedicated students with the mission of assisting students towards their professional life. In order to accomplish this mission, our association provides three types of services: facilitation of information and networking, self-growth, and fellowship.'
+}
+
+const sponsorsContent = {
+  stats: [
+    {
+      number: '30+',
+      description: 'Partners who are prestigious professional institutions and accounting firms across industries.'
+    },
+    {
+      number: '50+',
+      description: 'Networking events, information sessions, and social events held for our members throughout the year.'
+    },
+    {
+      number: '2000+',
+      description: 'Active subscribers and student members who are both highly engaged and eager to discover more opportunities in the accounting field.'
+    }
+  ],
+  heading: 'Supporting ASA',
+  description: 'Sponsors, thank you for your time and for your continuous support over the years.',
+  sponsors: [
+    { name: 'Deloitte', logo: '/assets/sponsors/deloitte.jpg', url: 'https://www2.deloitte.com/ca/en.html' },
+    { name: 'EY', logo: '/assets/sponsors/ey.jpg', url: 'https://www.ey.com/en_ca' },
+    { name: 'KPMG', logo: '/assets/sponsors/kpmg.jpg', url: 'https://kpmg.com/ca/en/home.html' },
+    { name: 'PwC', logo: '/assets/sponsors/pwc.jpg', url: 'https://www.pwc.com/ca/en.html' },
+    { name: 'Doane Grant Thornton', logo: '/assets/sponsors/doane-grant-thornton.jpg', url: 'https://www.doanegrantthornton.ca/' },
+    { name: 'Crowe', logo: '/assets/sponsors/crowe.jpg', url: 'https://www.crowe.com/' },
+    { name: 'Baker Tilly', logo: '/assets/sponsors/bakertilly.jpg', url: 'https://www.bakertilly.ca/' },
+    { name: 'Manning Elliott', logo: '/assets/sponsors/manning-elliot.jpg', url: 'https://www.manningelliott.com/' },
+    { name: 'Lohn Caulder', logo: '/assets/sponsors/lohn-caulder.jpg', url: 'https://lohncaulder.com/' },
+    { name: 'Invictus', logo: '/assets/sponsors/invictus.jpg', url: 'https://invictusaccounting.ca/' },
+    { name: 'Treewalk', logo: '/assets/sponsors/treewalk.jpg', url: 'https://www.treewalk.ca/' },
+  ]
+}
+
 export default async function Home() {
   const data = await getHomeData()
   
   return (
-    <main className="min-h-screen bg-gradient-to-br from-cyan-400 to-blue-500">
-      <div className="container mx-auto px-4 pt-32 pb-20">
-        <h1 className="text-6xl font-bold text-white">
-          {data?.heroTitle || 'ASPIRE. SHARE. ACHIEVE.'}
-        </h1>
-        <p className="text-xl text-white mt-8">
-          {data?.heroSubtitle}
-        </p>
-      </div>
+    <main className="min-h-screen">
+      <Hero content={heroContent} />
+      <Sponsors content={sponsorsContent} />
     </main>
   )
 }

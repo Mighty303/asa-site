@@ -1,10 +1,13 @@
 import './globals.css'
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Platypi } from 'next/font/google'
 import Navbar from '@/components/ui/layout/NavBar'
-// import Footer from '@/components/layout/Footer'
+import Footer from '@/components/ui/layout/Footer'
 
-const inter = Inter({ subsets: ['latin'] })
+const platypi = Platypi({ 
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700', '800']
+})
 
 export const metadata: Metadata = {
   title: 'SFU Accounting Student Association',
@@ -18,10 +21,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={platypi.className}>
         <Navbar />
         {children}
-        {/* <Footer /> */}
+        <Footer />
       </body>
     </html>
   )
