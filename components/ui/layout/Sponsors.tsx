@@ -9,6 +9,7 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel"
 import Autoplay from "embla-carousel-autoplay"
+import CountUp from "@/components/ui/CountUp"
 
 interface Stat {
   number: string
@@ -32,21 +33,44 @@ interface SponsorsProps {
   content: SponsorsContent
 }
 
+// Helper function to parse stat numbers
+function parseStatNumber(statString: string) {
+  // Extract number and suffix (e.g., "30+" => {number: 30, suffix: "+"})
+  const match = statString.match(/^(\d+(?:,\d+)?)(.*)$/)
+  if (match) {
+    const number = parseInt(match[1].replace(/,/g, ''))
+    const suffix = match[2] || ''
+    return { number, suffix }
+  }
+  return { number: 0, suffix: '' }
+}
+
 export default function Sponsors({ content }: SponsorsProps) {
   return (
     <section className="mx-12 my-28 bg-white flex flex-col items-center gap-12">
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-3 gap-12">
-          {content.stats.map((stat, index) => (
-            <div key={index} className="text-center md:text-left">
-              <h3 className="text-6xl md:text-7xl font-bold text-[#28599E] mb-6">
-                {stat.number}
-              </h3>
-              <p className="text-lg md:text-xl text-black leading-relaxed">
-                {stat.description}
-              </p>
-            </div>
-          ))}
+          {content.stats.map((stat, index) => {
+            const { number, suffix } = parseStatNumber(stat.number)
+            return (
+              <div key={index} className="text-center md:text-left">
+                <h3 className="text-6xl md:text-7xl font-bold text-[#28599E] mb-6">
+                  <CountUp
+                    from={0}
+                    to={number}
+                    duration={2}
+                    separator=","
+                    direction="up"
+                    suffix={suffix}
+                    className="count-up-text"
+                  />
+                </h3>
+                <p className="text-lg md:text-xl text-black leading-relaxed">
+                  {stat.description}
+                </p>
+              </div>
+            )
+          })}
         </div>
       </div>
     
