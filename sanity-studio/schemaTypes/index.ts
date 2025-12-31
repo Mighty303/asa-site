@@ -189,6 +189,4 @@ const siteSettings = defineType({
   ],
 })
 
-export const schema: { types: SchemaTypeDefinition[] } = {
-  types: [page, stat, sponsor, socialMedia, siteSettings],
-}
+export const schemaTypes = [page, stat, sponsor, socialMedia, siteSettings]

@@ -1,16 +1,25 @@
 {
+  "name": "asa-cms",
+  "private": true,
+  "version": "1.0.0",
   "scripts": {
     "dev": "sanity dev",
     "build": "sanity build",
     "seed": "tsx seed-data.ts",
-    "seed:assets": "tsx seed-with-assets.ts"
+    "seed:assets": "tsx seed-with-assets.ts",
+    "deploy": "sanity deploy"
   },
   "dependencies": {
     "@sanity/client": "^7.13.2",
-    "dotenv": "^17.2.3"
+    "@sanity/vision": "^3.68.1",
+    "dotenv": "^17.2.3",
+    "sanity": "^3.68.1",
+    "styled-components": "^6.1.15"
   },
   "devDependencies": {
+    "@sanity/cli": "^3.68.1",
     "@types/node": "^20.0.0",
-    "tsx": "^4.21.0"
+    "tsx": "^4.21.0",
+    "typescript": "^5.0.0"
   }
 }
