@@ -34,7 +34,7 @@ interface SponsorsProps {
 
 export default function Sponsors({ content }: SponsorsProps) {
   return (
-    <section className="mx-12 my-28 bg-white flex flex-col items-center">
+    <section className="mx-12 my-28 bg-white flex flex-col items-center gap-12">
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-3 gap-12">
           {content.stats.map((stat, index) => (

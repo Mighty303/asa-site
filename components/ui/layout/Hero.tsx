@@ -19,10 +19,15 @@ export default function Hero({ content }: HeroProps) {
           src="/assets/hero-bg.svg"
           alt="Mountain background"
           fill
-          className="object-cover"
+          className="object-cover object-center"
           priority
+          quality={100}
+          sizes="100vw"
         />
       </div>
+
+      {/* Optional: Add overlay for better text contrast */}
+      <div className="absolute inset-0 bg-blue-900/10" />
 
       {/* Content */}
       <div className="relative container mx-auto px-4 pt-32 pb-20">

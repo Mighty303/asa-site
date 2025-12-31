@@ -51,7 +51,7 @@ export default function Footer() {
               <Input 
                 type="email" 
                 placeholder="Email Address" 
-                className="flex-1 bg-white/90 text-gray-900 placeholder:text-gray-500 border-none rounded-full px-6 py-6 text-base"
+                className="flex-1 bg-white/90 text-gray-900 placeholder:text-gray-500 border-none rounded-full px-6 py-3 md:py-6 text-base"
                 required
               />
               <Button 
