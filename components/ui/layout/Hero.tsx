@@ -39,7 +39,7 @@ export default function Hero({ content }: HeroProps) {
           <div className={hasRightContent ? 'text-center md:text-left' : 'text-center'}>
             <h1 className="text-4xl md:text-7xl font-bold text-white leading-tight">
               {content.tagline.map((line, index) => (
-                <div key={index} className={hasRightContent ? (index === 1 ? 'md:pl-6' : index === 2 ? 'md:pl-12' : '') : ''}>
+                <div key={index} className={hasRightContent}>
                   {line}
                 </div>
               ))}
