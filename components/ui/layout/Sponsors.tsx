@@ -1,14 +1,6 @@
 "use client"
 
 import Image from "next/image"
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel"
-import Autoplay from "embla-carousel-autoplay"
 import CountUp from "@/components/ui/CountUp"
 
 interface Stat {
@@ -80,44 +72,39 @@ export default function Sponsors({ content }: SponsorsProps) {
         {content.heading}
       </h2>
       
-      <Carousel 
-        className="w-full max-w-5xl mb-8"
-        opts={{
-          align: "start",
-          loop: true
-        }}
-        plugins={[Autoplay(
-          {
-            delay: 3000,
-            stopOnInteraction: false
-          }
-        )]}
-      >
-        <CarouselContent>
+      {/* Marquee-style infinite carousel */}
+      <div className="w-full overflow-hidden mb-8">
+        <div className="flex animate-marquee hover:[animation-play-state:paused]">
+          {/* First set of sponsors */}
           {content.sponsors?.map((sponsor, index) => (
-            <CarouselItem key={index} className="">
-              <div className="p-4">
-                <a 
-                  // href={sponsor.url} 
-                  // target="_blank" 
-                  // rel="noopener noreferrer"
-                  className="flex items-center justify-center h-32 transition-opacity"
-                >
-                  <Image
-                    src={sponsor.logo}
-                    alt={sponsor.name}
-                    width={250}
-                    height={200}
-                    className="object-contain max-h-full w-auto"
-                  />
-                </a>
+            <div key={index} className="shrink-0 px-8">
+              <div className="flex items-center justify-center h-24 w-48">
+                <Image
+                  src={sponsor.logo}
+                  alt={sponsor.name}
+                  width={200}
+                  height={100}
+                  className="object-contain max-h-full w-auto"
+                />
               </div>
-            </CarouselItem>
+            </div>
           ))}
-        </CarouselContent>
-        <CarouselPrevious />
-        <CarouselNext />
-      </Carousel>
+          {/* Duplicate set for seamless loop */}
+          {content.sponsors?.map((sponsor, index) => (
+            <div key={`dup-${index}`} className="shrink-0 px-8">
+              <div className="flex items-center justify-center h-24 w-48">
+                <Image
+                  src={sponsor.logo}
+                  alt={sponsor.name}
+                  width={200}
+                  height={100}
+                  className="object-contain max-h-full w-auto"
+                />
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
       
       <p className="text-lg text-black">
         {content.description}
