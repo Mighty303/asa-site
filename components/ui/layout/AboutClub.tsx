@@ -9,7 +9,7 @@ export default function AboutClub({ heading = "WHO WE ARE", description }: About
       {/* <h2 className="text-4xl md:text-5xl font-bold text-[#28599E] mb-8">
         {heading}
       </h2> */}
-      <p className="text-lg md:text-2xl text-gray-800 leading-loose text-left">
+      <p className="text-lg md:text-xl text-gray-800 leading-loose text-left">
         {description}
       </p>
     </section>

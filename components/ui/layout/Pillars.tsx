@@ -38,7 +38,7 @@ export default function Pillars({ heading = 'Our Three Pillars', pillars = defau
         {pillars.map((pillar, index) => (
           <div 
             key={index}
-            className="p-8 md:p-10 text-center flex flex-col"
+            className="p-8 md:p-10 text-center flex flex-col min-h-100 md:min-h-112.5"
             style={{ backgroundColor: pillar.bgColor }}
           >
             <h3 className="text-3xl md:text-4xl font-bold text-white mb-6">{pillar.title}</h3>

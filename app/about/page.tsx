@@ -31,7 +31,7 @@ async function getHomeData() {
 }
 
 const heroContent = {
-  tagline: ['ABOUT', 'US'],
+  tagline: ['ABOUT US'],
   description: 'At the SFU Accounting Student Association (ASA), our mission is to empower students on their journey to a successful and fulfilling professional life. We are dedicated to providing invaluable resources, fostering personal growth, and creating valuable experiences within our tight-knit community.'
 }
 
