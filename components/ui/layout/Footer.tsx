@@ -22,8 +22,8 @@ export default function Footer() {
              <Image className='w-12 h-12' src="/assets/asa-logo.svg" width={32} height={32} alt="ASA Logo" />
             </Link>
             <Link href="/" className="hover:underline hover:underline-offset-6 hover:decoration-2">Home</Link>
-            <Link href="/our-values" className="hover:underline hover:underline-offset-6 hover:decoration-2">Our Values</Link>
-            <Link href="/team" className="hover:underline hover:underline-offset-6 hover:decoration-2">Team</Link>
+            <Link href="/about" className="hover:underline hover:underline-offset-6 hover:decoration-2">About</Link>
+            <Link href="/our-team" className="hover:underline hover:underline-offset-6 hover:decoration-2">Team</Link>
             <Link href="/tax-program" className="hover:underline hover:underline-offset-6 hover:decoration-2">Tax Program</Link>
             <Link href="/contact-us" className="hover:underline hover:underline-offset-6 hover:decoration-2">Contact Us</Link>
             <div className="flex gap-4 mt-2">

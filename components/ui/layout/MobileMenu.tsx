@@ -19,18 +19,18 @@ export default function MobileMenu({ onClose }: MobileMenuProps) {
             Home
           </Link>
           <Link 
-            href="/our-values" 
+            href="/about" 
             className="px-6 py-4 hover:bg-white/10 border-b border-white/10"
             onClick={onClose}
           >
-            Our Values
+            About
           </Link>
           <Link 
-            href="/team" 
+            href="/our-team" 
             className="px-6 py-4 hover:bg-white/10 border-b border-white/10"
             onClick={onClose}
           >
-            Team
+            Our Team
           </Link>
           <Link 
             href="/tax-program" 

@@ -1,4 +1,5 @@
 import Hero from '@/components/ui/layout/Hero'
+import AboutClub from '@/components/ui/layout/AboutClub'
 import Sponsors from '@/components/ui/layout/Sponsors'
 import { client } from '@/lib/sanity'
 import { urlFor } from '@/lib/sanity'
@@ -77,6 +78,9 @@ export default async function Home() {
   return (
     <main className="min-h-screen">
       <Hero content={heroContent} />
+      <AboutClub 
+        description="The SFU Accounting Student Association (ASA) is an organization made up of highly-dedicated students with the mission of assisting students towards their professional life. In order to accomplish this mission, our association provides three types of services: facilitation of information and networking, self-growth, and fellowship."
+      />
       <Sponsors content={sponsorsContent} />
     </main>
   )
