@@ -15,8 +15,15 @@ export default function TaxProgramContent() {
                 <p className="text-lg font-semibold text-black">Our 2026 client application is open!</p>
                 <p className="text-lg">
                   Application closes on <span className="text-[#5293BB] font-semibold">February 20th, 2026 at 11:59 PM</span>. 
-                  The registration link is <a href="#" className="underline font-semibold">here</a>
                 </p>
+                <a 
+                  href="https://docs.google.com/forms/d/e/1FAIpQLSdua4T4lEouP50tlToOrt83xGO3NtmBg-U0POrflaZJrVwOBQ/viewform?fbclid=PAVERFWAPXcv1leHRuA2FlbQIxMABzcnRjBmFwcF9pZA8xMjQwMjQ1NzQyODc0MTQAAad_9PrWUkQJQ-INxyGavNNF96G4r_GAqnnhkvY2UeaN-436bUOcdx0WFF24wQ_aem_P_1KLBZLEvRVQzxxHKttDA"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block mt-4 px-6 py-3 bg-[#28599E] text-white font-semibold rounded-lg hover:bg-[#1d4275] transition-colors"
+                >
+                  Register Now
+                </a>
               </div>
               
               <div className="relative w-full max-w-md">
@@ -67,7 +74,7 @@ export default function TaxProgramContent() {
             {/* Vertical line */}
             <div className="w-0.5 h-8 bg-[#28599E]" />
             
-            <h2 className="text-3xl md:text-4xl font-bold text-[#28599E] my-4">Eligibility Criteria</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-white my-4">Eligibility Criteria</h2>
             <p className="text-black">You may qualify if your income fits within the following limits:</p>
             
             {/* Vertical line below */}
@@ -143,7 +150,7 @@ export default function TaxProgramContent() {
               />
             </div>
             
-            <ul className="list-disc list-inside space-y-2 text-white">
+            <ul className="list-disc list-outside space-y-2 text-white">
               <li>You have business or rental income/expenses</li>
               <li>Self-employed individuals or those with employment expenses (see Exception 1)</li>
               <li>Deceased persons&apos; tax returns</li>
