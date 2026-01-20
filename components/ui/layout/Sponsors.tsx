@@ -74,35 +74,39 @@ export default function Sponsors({ content }: SponsorsProps) {
       
       {/* Marquee-style infinite carousel */}
       <div className="w-full overflow-hidden mb-8">
-        <div className="flex animate-marquee hover:[animation-play-state:paused]">
+        <div className="inline-flex animate-marquee hover:paused" style={{ width: 'max-content' }}>
           {/* First set of sponsors */}
-          {content.sponsors?.map((sponsor, index) => (
-            <div key={index} className="shrink-0 px-8">
-              <div className="flex items-center justify-center h-24 w-48">
-                <Image
-                  src={sponsor.logo}
-                  alt={sponsor.name}
-                  width={200}
-                  height={100}
-                  className="object-contain max-h-full w-auto"
-                />
+          <div className="flex">
+            {content.sponsors?.map((sponsor, index) => (
+              <div key={index} className="shrink-0 mx-6 md:mx-10">
+                <div className="flex items-center justify-center h-16 md:h-20 w-28 md:w-40">
+                  <Image
+                    src={sponsor.logo}
+                    alt={sponsor.name}
+                    width={160}
+                    height={80}
+                    className="object-contain h-full w-full"
+                  />
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
           {/* Duplicate set for seamless loop */}
-          {content.sponsors?.map((sponsor, index) => (
-            <div key={`dup-${index}`} className="shrink-0 px-8">
-              <div className="flex items-center justify-center h-24 w-48">
-                <Image
-                  src={sponsor.logo}
-                  alt={sponsor.name}
-                  width={200}
-                  height={100}
-                  className="object-contain max-h-full w-auto"
-                />
+          <div className="flex">
+            {content.sponsors?.map((sponsor, index) => (
+              <div key={`dup-${index}`} className="shrink-0 mx-6 md:mx-10">
+                <div className="flex items-center justify-center h-16 md:h-20 w-28 md:w-40">
+                  <Image
+                    src={sponsor.logo}
+                    alt={sponsor.name}
+                    width={160}
+                    height={80}
+                    className="object-contain h-full w-full"
+                  />
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
       
