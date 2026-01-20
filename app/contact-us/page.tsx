@@ -5,7 +5,6 @@ import { Button } from '@/components/ui/button'
 
 const heroContent = {
   tagline: ['CONTACT US'],
-  description: 'Have questions or want to get involved? We\'d love to hear from you! Fill out the form below and we\'ll get back to you as soon as possible.'
 }
 
 export default function ContactUs() {
@@ -18,19 +17,19 @@ export default function ContactUs() {
         <h2 className="text-4xl md:text-5xl font-bold text-[#28599E] mb-6">
           Contact Us
         </h2>
-        <p className="text-lg md:text-xl">
+        <p className="text-md">
           Thank you for contacting the SFU Accounting Student Association.
         </p>
-        <p className="text-lg md:text-xl">
+        <p className="text-md">
           Please submit your inquiry using the form below.
         </p>
-        <p className="text-lg md:text-xl">
+        <p className="text-md">
           You can expect a response in 1-7 business days.
         </p>
       </section>
 
       {/* Contact Form Section */}
-      <section className="container mx-auto px-4 pb-16 md:pb-24 max-w-3xl">
+      <section className="container mx-auto px-4 pb-16 md:pb-24 max-w-4xl">
         <form className="space-y-8">
           {/* Name Fields Row */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -96,7 +95,7 @@ export default function ContactUs() {
           </div>
 
           {/* Submit Button */}
-          <div className="flex justify-center pt-4">
+          <div className="flex justify-start pt-4">
             <Button 
               type="submit"
               className="bg-[#5293BB] hover:bg-[#3d7496] text-white font-semibold px-12 py-6 text-lg rounded-md shadow-lg transition-colors"
@@ -107,7 +106,7 @@ export default function ContactUs() {
         </form>
 
         {/* Additional Note */}
-        <p className="text-sm text-gray-600 mt-8 text-center">
+        <p className="text-sm text-gray-600 mt-8">
           *Submissions are directly sent to the ASA President&apos;s inbox
         </p>
       </section>
@@ -119,7 +118,7 @@ export default function ContactUs() {
           <h3 className="text-3xl md:text-4xl font-bold text-[#28599E] mb-4">
             Prefer Email?
           </h3>
-          <p className="text-lg md:text-xl text-gray-800">
+          <p className="text-md text-gray-800">
             You may also contact us at{' '}
             <a 
               href="mailto:sfuasa.pres@gmail.com" 
@@ -135,7 +134,7 @@ export default function ContactUs() {
           <h3 className="text-3xl md:text-4xl font-bold text-[#28599E] mb-4">
             Questions About Our Tax Program?
           </h3>
-          <p className="text-lg md:text-xl text-gray-800">
+          <p className="text-md text-gray-800">
             Reach our Project Managers at{' '}
             <a 
               href="mailto:sfutax@gmail.com" 
@@ -151,7 +150,7 @@ export default function ContactUs() {
           <h3 className="text-3xl md:text-4xl font-bold text-[#28599E] mb-4">
             Social Media
           </h3>
-          <p className="text-lg md:text-xl text-gray-800">
+          <p className="text-md text-gray-800">
             Stay connected with us on Instagram, LinkedIn, and TikTok.
           </p>
         </div>

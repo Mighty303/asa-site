@@ -63,7 +63,7 @@ export default async function Team() {
           <h2 className="text-4xl font-bold uppercase my-12 text-[#28599E]">EXECUTIVE TEAM</h2>
         </div>
       </section>
-      <section className='min-h-screen flex flex-col items-center mx-auto w-[90%] mb-12'>
+      <section className='min-h-screen flex flex-col items-center mx-auto w-[90%]'>
         <h2 className="text-4xl font-bold uppercase my-12 text-[#28599E]">PRESIDENTS</h2>
         <div className='flex flex-col md:flex-row items-center w-full py-8 bg-linear-to-b from-[#80A6DF] via-[#B1CFE7] to-[#B1CFE7]'>
           <span className='flex flex-col items-center justify-center flex-1 p-8'>

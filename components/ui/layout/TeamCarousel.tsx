@@ -22,8 +22,8 @@ interface TeamCarouselProps {
 
 export default function TeamCarousel({ title, members }: TeamCarouselProps) {
   return (
-    <section className="min-h-screen flex flex-col items-center mx-auto w-[90%] mb-12 px-6">
-      <h2 className="text-4xl font-bold uppercase my-12 text-[#28599E]">{title}</h2>
+    <section className="flex flex-col items-center mx-auto w-[90%] mb-12 px-6">
+      <h2 className="text-4xl font-bold uppercase text-[#28599E]">{title}</h2>
       
       <Carousel 
         className="w-full max-w-5xl"

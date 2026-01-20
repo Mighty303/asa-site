@@ -49,6 +49,7 @@ const sponsorsContent = {
       description: 'Active subscribers and student members who are both highly engaged and eager to discover more opportunities in the accounting field.'
     }
   ],
+  execTeamImage: '/assets/teams/exec-team.jpg',
   heading: 'Supporting ASA',
   description: 'Sponsors, thank you for your time and for your continuous support over the years.',
   sponsors: [

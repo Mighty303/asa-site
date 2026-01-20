@@ -3,7 +3,7 @@ import Image from "next/image"
 interface HeroContent {
   tagline: string[]
   heading?: string
-  description: string
+  description?: string
 }
 
 interface HeroProps {
@@ -31,29 +31,31 @@ export default function Hero({ content }: HeroProps) {
 
       {/* Content */}
       <div className="relative container mx-auto px-4 pt-32 pb-20">
-        <div className="grid md:grid-cols-2 gap-12 items-center min-h-[80vh]">
+        <div className={`${content.description ? 'grid md:grid-cols-2 gap-12 items-center' : 'flex justify-center items-center'} min-h-[80vh]`}>
           {/* Left side - ASPIRE. SHARE. ACHIEVE. */}
-          <div className="text-left">
+          <div className={content.description ? 'text-left' : 'text-center'}>
             <h1 className="text-5xl md:text-8xl font-bold text-white leading-tight">
               {content.tagline.map((line, index) => (
-                <div key={index} className={index === 1 ? 'pl-6' : index === 2 ? 'pl-12' : ''}>
+                <div key={index} className={content.description ? (index === 1 ? 'pl-6' : index === 2 ? 'pl-12' : '') : ''}>
                   {line}
                 </div>
               ))}
             </h1>
           </div>
 
-          {/* Right side - WHO WE ARE */}
-          <div className="text-white">
-            {content.heading && (
-              <h2 className="text-4xl md:text-5xl font-bold text-blue-900 mb-6">
-                {content.heading}
-              </h2>
-            )}
-            <p className="text-lg md:text-xl leading-relaxed">
-              {content.description}
-            </p>
-          </div>
+          {/* Right side - WHO WE ARE (only shown if there's a description) */}
+          {content.description && (
+            <div className="text-white">
+              {content.heading && (
+                <h2 className="text-4xl md:text-5xl font-bold text-blue-900 mb-6">
+                  {content.heading}
+                </h2>
+              )}
+              <p className="text-lg md:text-xl leading-relaxed">
+                {content.description}
+              </p>
+            </div>
+          )}
         </div>
       </div>
     </section>
