@@ -14,7 +14,7 @@ export default function Footer() {
         alt="Footer background" 
       />
       <div className="container mx-auto px-4 py-12">
-        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
+        <div className="flex flex-col-reverse md:flex-row items-start md:items-center justify-between gap-8">
           
           {/* Navigation Links */}
           <div className="flex flex-col gap-4 text-white text-lg">

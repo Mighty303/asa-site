@@ -1,4 +1,5 @@
 import Hero from '@/components/ui/layout/Hero'
+import TeamCarousel from '@/components/ui/layout/TeamCarousel'
 import { client, urlFor } from '@/lib/sanity'
 import Image from 'next/image'
 
@@ -87,19 +88,18 @@ export default async function Team() {
           <p className='text-center italic mt-12'>“Since our founding in 2012, the SFU Accounting Student Association (ASA) has been dedicated to providing meaningful professional and personal development opportunities for students pursuing accounting. Guided by our core values—Aspire, Share, and Achieve—we strive to make a positive impact within our community. Each year, we engage the Beedie community through our pillar initiatives, including networking events, our mentorship program, the volunteer tax program, and the ACHIEVE Case Competition. Supported by a team of 36 committed members, we continue to expand and enhance opportunities for students year after year.”</p>
         </blockquote>
       </section>
-      <section className='min-h-screen flex flex-col items-center mx-auto w-[90%] mb-12'>
-        <h2 className="text-4xl font-bold uppercase my-12 text-[#28599E]">Event Team</h2>
-        <div className="container flex flex-col-reverse md:flex-row-reverse justify-center items-center gap-8 mx-auto px-4 pt-32 pb-20">
-          {data.page?.executiveTeamImage && (
-            <Image 
-              src={'/assets/teams/event/guilherme.jpg'} 
-              alt="Executive Team" 
-              width={800} 
-              height={600} 
-            />
-          )}
-        </div>
-      </section>
+      <TeamCarousel 
+        title="Event Team" 
+        members={[
+          { name: "Guilherme", role: "Events Co-Director", photo: "/assets/teams/event/guilherme.jpg" },
+          { name: "Mattias", role: "Events Co-Director", photo: "/assets/teams/event/mattias.jpg" },
+          { name: "Jasveen", role: "Event Coordinator", photo: "/assets/teams/event/jasveen.jpg" },
+          { name: "Jestin", role: "Event Coordinator", photo: "/assets/teams/event/jestin.jpg" },
+          { name: "Liam", role: "Event Coordinator", photo: "/assets/teams/event/liam.jpg" },
+          { name: "Stephanie", role: "Event Coordinator", photo: "/assets/teams/event/stephanie.jpg" },
+          { name: "Cindy", role: "Event Coordinator", photo: "/assets/teams/event/cindy.jpg" }
+        ]}
+      />
     </main>
   )
 }

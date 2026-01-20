@@ -16,9 +16,12 @@ export default function Navbar() {
   return (
     <nav className="fixed top-0 w-full bg-[#5293BB70] backdrop-blur-md z-50">
       <div className="container mx-auto px-4 py-6 flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-2">
-          <Image className='w-12 h-12' src="/assets/asa-logo.svg" width={32} height={32} alt="ASA Logo" />
-        </Link>
+        <div className='flex items-center gap-4'>
+          <Link href="/" className="flex items-center gap-2">
+            <Image className='w-12 h-12' src="/assets/asa-logo.svg" width={32} height={32} alt="ASA Logo" />
+          </Link>
+          <p className="text-white text-lg">Accounting Student Association</p>
+        </div>
         
         <div className="hidden md:flex gap-8 text-white text-lg">
           <Link href="/" className="hover:underline hover:underline-offset-6 hover:decoration-2">Home</Link>

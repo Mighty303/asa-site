@@ -101,7 +101,7 @@ export default function ContactUs() {
               type="submit"
               className="bg-[#5293BB] hover:bg-[#3d7496] text-white font-semibold px-12 py-6 text-lg rounded-md shadow-lg transition-colors"
             >
-              Send Message
+              Submit
             </Button>
           </div>
         </form>
