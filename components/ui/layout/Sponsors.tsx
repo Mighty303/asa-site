@@ -48,9 +48,8 @@ function parseStatNumber(statString: string) {
 
 export default function Sponsors({ content }: SponsorsProps) {
   return (
-    <section className="mx-12 my-28 bg-white flex flex-col items-center gap-12">
-
-      <div className="container mx-auto px-4">
+    <section className="px-4 md:px-12 my-28 bg-white flex flex-col items-center gap-12 overflow-hidden">
+      <div className="container mx-auto">
         <hr className="w-full border-t border-[#28599E] border-3 mb-12" />
         <div className="grid md:grid-cols-3 gap-12">
           {content.stats.map((stat, index) => {

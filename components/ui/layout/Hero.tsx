@@ -9,13 +9,14 @@ interface HeroContent {
 
 interface HeroProps {
   content: HeroContent
+  reverseOnMobile?: boolean
 }
 
-export default function Hero({ content }: HeroProps) {
+export default function Hero({ content, reverseOnMobile = false }: HeroProps) {
   const hasRightContent = content.description || content.teamImage
 
   return (
-    <section className="relative min-h-screen">
+    <section className="relative min-h-screen overflow-hidden">
       {/* Background image */}
       <div className="absolute inset-0">
         <Image
@@ -34,7 +35,7 @@ export default function Hero({ content }: HeroProps) {
 
       {/* Content */}
       <div className="relative container mx-auto px-4 pt-32 md:pb-20">
-        <div className={`${hasRightContent ? 'flex flex-col-reverse md:grid md:grid-cols-2 gap-12 items-center' : 'flex justify-center items-center'} min-h-[65vh] md:min-h-[80vh]`}>
+        <div className={`${hasRightContent ? `flex ${reverseOnMobile ? 'flex-col-reverse' : 'flex-col'} md:grid md:grid-cols-2 gap-12 items-center` : 'flex justify-center items-center'} min-h-[65vh] md:min-h-[80vh]`}>
           {/* Left side - ASPIRE. SHARE. ACHIEVE. */}
           <div className={hasRightContent ? 'text-center md:text-left' : 'text-center'}>
             <h1 className="text-4xl md:text-7xl font-bold text-white leading-tight">
@@ -60,7 +61,7 @@ export default function Hero({ content }: HeroProps) {
                   alt="Team"
                   width={800}
                   height={800}
-                  className="rounded-lg shadow-lg w-full md:w-[50vw] md:max-w-162.5 h-auto object-contain"
+                  className="rounded-lg shadow-lg w-full max-w-full h-auto object-contain"
                 />
               )}
             </div>

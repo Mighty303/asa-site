@@ -77,7 +77,7 @@ export default async function Home() {
   
   return (
     <main className="min-h-screen">
-      <Hero content={heroContent} />
+      <Hero content={heroContent} reverseOnMobile />
       <AboutClub 
         description="The SFU Accounting Student Association (ASA) is an organization made up of highly-dedicated students with the mission of assisting students towards their professional life. In order to accomplish this mission, our association provides three types of services: facilitation of information and networking, self-growth, and fellowship."
       />
