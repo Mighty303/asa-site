@@ -4,6 +4,7 @@ interface HeroContent {
   tagline: string[]
   heading?: string
   description?: string
+  teamImage?: string
 }
 
 interface HeroProps {
@@ -11,6 +12,8 @@ interface HeroProps {
 }
 
 export default function Hero({ content }: HeroProps) {
+  const hasRightContent = content.description || content.teamImage
+
   return (
     <section className="relative min-h-screen">
       {/* Background image */}
@@ -30,30 +33,36 @@ export default function Hero({ content }: HeroProps) {
       <div className="absolute inset-0 bg-blue-900/10" />
 
       {/* Content */}
-      <div className="relative container mx-auto px-4 pt-32 pb-20">
-        <div className={`${content.description ? 'grid md:grid-cols-2 gap-12 items-center' : 'flex justify-center items-center'} min-h-[80vh]`}>
+      <div className="relative container mx-auto px-4 pt-32 md:pb-20">
+        <div className={`${hasRightContent ? 'flex flex-col-reverse md:grid md:grid-cols-2 gap-12 items-center' : 'flex justify-center items-center'} min-h-[65vh] md:min-h-[80vh]`}>
           {/* Left side - ASPIRE. SHARE. ACHIEVE. */}
-          <div className={content.description ? 'text-left' : 'text-center'}>
-            <h1 className="text-5xl md:text-8xl font-bold text-white leading-tight">
+          <div className={hasRightContent ? 'text-center md:text-left' : 'text-center'}>
+            <h1 className="text-4xl md:text-7xl font-bold text-white leading-tight">
               {content.tagline.map((line, index) => (
-                <div key={index} className={content.description ? (index === 1 ? 'pl-6' : index === 2 ? 'pl-12' : '') : ''}>
+                <div key={index} className={hasRightContent ? (index === 1 ? 'md:pl-6' : index === 2 ? 'md:pl-12' : '') : ''}>
                   {line}
                 </div>
               ))}
             </h1>
           </div>
 
-          {/* Right side - WHO WE ARE (only shown if there's a description) */}
-          {content.description && (
-            <div className="text-white">
-              {content.heading && (
-                <h2 className="text-4xl md:text-5xl font-bold text-blue-900 mb-6">
-                  {content.heading}
-                </h2>
+          {/* Right side - Description or Team Image */}
+          {hasRightContent && (
+            <div className="text-white flex flex-col items-center md:items-start gap-6">
+              {content.description && (
+                <p className="text-lg md:text-xl leading-relaxed">
+                  {content.description}
+                </p>
               )}
-              <p className="text-lg md:text-xl leading-relaxed">
-                {content.description}
-              </p>
+              {content.teamImage && (
+                <Image
+                  src={content.teamImage}
+                  alt="Team"
+                  width={800}
+                  height={800}
+                  className="rounded-lg shadow-lg w-full md:w-[50vw] md:max-w-162.5 h-auto object-contain"
+                />
+              )}
             </div>
           )}
         </div>

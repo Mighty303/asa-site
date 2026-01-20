@@ -74,20 +74,6 @@ export default function Sponsors({ content }: SponsorsProps) {
           })}
         </div>
       </div>
-
-      {/* Exec Team Section */}
-      {content.execTeamImage && (
-        <div className="flex flex-col items-center py-8">
-          <h2 className="text-4xl font-bold uppercase mb-12 text-[#28599E]">EXECUTIVE TEAM</h2>
-          <Image 
-            src={content.execTeamImage} 
-            alt="Executive Team" 
-            width={800} 
-            height={800}
-            className=""
-          />
-        </div>
-      )}
     
       <h2 className="text-4xl font-bold uppercase my-12 text-[#28599E]">
         {content.heading}
