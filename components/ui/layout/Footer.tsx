@@ -40,7 +40,7 @@ export default function Footer() {
           </div>
 
           {/* Newsletter Section */}
-          <div className="flex flex-col items-center md:items-start text-center md:text-right max-w-lg">
+          <div className="flex flex-col items-start text-center md:text-right max-w-lg">
             <h2 className="text-3xl md:text-4xl font-bold text-[#28599E] mb-4">
               Join the ASA Newsletter!
             </h2>
