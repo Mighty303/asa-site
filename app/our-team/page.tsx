@@ -92,9 +92,9 @@ export default async function Team() {
         title="Event Team" 
         members={[
           { name: "Guilherme", role: "Events Co-Director", photo: "/assets/teams/event/guilherme.jpg" },
-          { name: "Mattias", role: "Events Co-Director", photo: "/assets/teams/event/mattias.jpg" },
+          { name: "Jestin", role: "Event Co-Director", photo: "/assets/teams/event/jestin.jpg" },
+          { name: "Mattias", role: "Events Coordinator", photo: "/assets/teams/event/mattias.jpg" },
           { name: "Jasveen", role: "Event Coordinator", photo: "/assets/teams/event/jasveen.jpg" },
-          { name: "Jestin", role: "Event Coordinator", photo: "/assets/teams/event/jestin.jpg" },
           { name: "Liam", role: "Event Coordinator", photo: "/assets/teams/event/liam.jpg" },
           { name: "Stephanie", role: "Event Coordinator", photo: "/assets/teams/event/stephanie.jpg" },
           { name: "Cindy", role: "Event Coordinator", photo: "/assets/teams/event/cindy.jpg" }

@@ -35,16 +35,19 @@ export default function TeamCarousel({ title, members }: TeamCarouselProps) {
           {members.map((member, index) => (
             <CarouselItem key={index} className="basis-full sm:basis-1/2 lg:basis-1/3">
               <div className="p-4 flex flex-col items-center">
-                <div className="relative w-full max-w-64 aspect-4/5 overflow-hidden rounded-lg shadow-lg mb-4">
+                <div className="relative w-full max-w-64 aspect-4/5 overflow-hidden rounded-lg shadow-lg">
                   <Image
                     src={member.photo}
                     alt={member.name}
                     fill
                     className="object-cover"
                   />
+                  {/* Name and role overlay at bottom */}
+                  <div className="absolute bottom-0 left-0 right-0 bg-black/60 px-4 py-3 text-center">
+                    <h3 className="text-lg font-semibold text-white">{member.name}</h3>
+                    <p className="text-white/80 text-sm">{member.role}</p>
+                  </div>
                 </div>
-                <h3 className="text-xl font-semibold text-[#28599E]">{member.name}</h3>
-                <p className="text-gray-600">{member.role}</p>
               </div>
             </CarouselItem>
           ))}

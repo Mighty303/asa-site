@@ -34,7 +34,7 @@ export default function Pillars({ heading = 'Our Three Pillars', pillars = defau
         {heading}
       </h2>
       
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-0">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8 max-w-7xl mx-auto">
         {pillars.map((pillar, index) => (
           <div 
             key={index}

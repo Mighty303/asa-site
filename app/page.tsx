@@ -51,7 +51,7 @@ const sponsorsContent = {
     }
   ],
   execTeamImage: '/assets/teams/exec-team.jpg',
-  heading: 'Supporting ASA',
+  heading: 'Our Sponsors',
   description: 'Sponsors, thank you for your time and for your continuous support over the years.',
   sponsors: [
     { name: 'Deloitte', logo: '/assets/sponsors/deloitte.jpg', url: 'https://www2.deloitte.com/ca/en.html' },
