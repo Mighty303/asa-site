@@ -56,7 +56,7 @@ export default function Footer() {
               />
               <Button 
                 type="submit" 
-                className="bg-[#28599E] hover:bg-[#1d4578] text-white font-semibold px-8 py-6 rounded-full text-base whitespace-nowrap"
+                className="bg-[#28599E] hover:bg-[#1d4578] text-white font-semibold px-8 py-6 rounded-full text-base whitespace-nowrap cursor-pointer"
               >
                 Sign Up
               </Button>

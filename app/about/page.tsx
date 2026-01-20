@@ -2,6 +2,7 @@ import Hero from '@/components/ui/layout/Hero'
 import Sponsors from '@/components/ui/layout/Sponsors'
 import { client } from '@/lib/sanity'
 import { urlFor } from '@/lib/sanity'
+import Pillars from '@/components/ui/layout/Pillars'
 
 async function getHomeData() {
   const query = `{
@@ -29,12 +30,12 @@ async function getHomeData() {
 }
 
 const heroContent = {
-  tagline: ['OUR', 'VALUES'],
+  tagline: ['ABOUT', 'US'],
   description: 'At the SFU Accounting Student Association (ASA), our mission is to empower students on their journey to a successful and fulfilling professional life. We are dedicated to providing invaluable resources, fostering personal growth, and creating valuable experiences within our tight-knit community.'
 }
 
 
-export default async function Home() {
+export default async function About() {
   const data = await getHomeData()
   
   // Now you can use urlFor() to get image URLs:
@@ -44,6 +45,8 @@ export default async function Home() {
   return (
     <main className="min-h-screen">
       <Hero content={heroContent} />
+      
+      <Pillars />
     </main>
   )
 }

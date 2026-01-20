@@ -90,7 +90,7 @@ export default function ContactUs() {
             <Textarea 
               id="message"
               rows={12}
-              className="w-full px-4 py-3 text-base border-2 border-gray-300 rounded-md focus:border-[#5293BB] focus:ring-[#5293BB]/30 resize-none"
+              className="w-full px-4 py-3 text-base border-2 border-gray-300 rounded-md focus:border-[#5293BB] focus:ring-[#5293BB]/30 resize-none min-h-32"
             />
           </div>
 
