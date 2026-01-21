@@ -33,8 +33,7 @@ export default async function Team() {
   const data = await getTeamData()
   
   const heroContent = {
-    tagline: teamPageContent.hero.tagline,
-    description: teamPageContent.hero.description
+    tagline: teamPageContent.hero.tagline
   }
   
   return (
