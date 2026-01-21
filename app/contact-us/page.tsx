@@ -26,19 +26,30 @@ export default function ContactUs() {
 
   const onSubmit = async (data: ContactFormData) => {
     try {
-      console.log('Form submitted:', data)
-      // TODO: Add actual form submission logic (e.g., send to API)
-      
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1000))
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      })
+
+      if (!response.ok) {
+        throw new Error('Failed to send message')
+      }
       
       toast.success(contactPageContent.toast.successTitle, {
-        description: contactPageContent.toast.successDescription,
+        description: contactPageContent.toast.successDescription
       })
       reset()
-    } catch (error) {
+    } catch {
       toast.error(contactPageContent.toast.errorTitle, {
         description: contactPageContent.toast.errorDescription,
+        style: {
+          background: '#ef4444',
+          color: 'white',
+          border: 'none',
+        },
       })
     }
   }
