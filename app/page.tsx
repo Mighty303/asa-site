@@ -1,6 +1,7 @@
 import Hero from '@/components/ui/layout/Hero'
 import AboutClub from '@/components/ui/layout/AboutClub'
 import Sponsors from '@/components/ui/layout/Sponsors'
+import TaxProgramCTA from '@/components/ui/layout/TaxProgramCTA'
 import { client } from '@/lib/sanity'
 import { urlFor } from '@/lib/sanity'
 
@@ -80,9 +81,8 @@ export default async function Home() {
       <Hero content={heroContent} reverseOnMobile />
       <AboutClub 
         description="The SFU Accounting Student Association (ASA) is an organization made up of highly-dedicated students with the mission of assisting students towards their professional life. In order to accomplish this mission, our association provides three types of services: facilitation of information and networking, self-growth, and fellowship."
-        ctaText="Register for Tax Program"
-        ctaLink="https://docs.google.com/forms/d/e/1FAIpQLSdua4T4lEouP50tlToOrt83xGO3NtmBg-U0POrflaZJrVwOBQ/viewform"
       />
+      <TaxProgramCTA />
       <Sponsors content={sponsorsContent} />
     </main>
   )

@@ -47,6 +47,7 @@ export default async function Team() {
               alt="Team" 
               width={800} 
               height={600} 
+              className='rounded-lg'
             />
           )}
           <h2 className="text-4xl font-bold uppercase my-12 text-[#28599E]">ASA 2025/2026 TEAM</h2>
@@ -57,7 +58,8 @@ export default async function Team() {
               src={urlFor(data.page.executiveTeamImage).url()} 
               alt="Executive Team" 
               width={800} 
-              height={600} 
+              height={600}
+              className='rounded-lg'
             />
           )}
           <h2 className="text-4xl font-bold uppercase my-12 text-[#28599E]">EXECUTIVE TEAM</h2>
@@ -65,7 +67,7 @@ export default async function Team() {
       </section>
       <section className='min-h-screen flex flex-col items-center mx-auto w-[90%]'>
         <h2 className="text-4xl font-bold uppercase my-12 text-[#28599E]">PRESIDENTS</h2>
-        <div className='flex flex-col md:flex-row items-center w-full py-8 bg-linear-to-b from-[#80A6DF] via-[#B1CFE7] to-[#B1CFE7]'>
+        <div className='flex flex-col md:flex-row items-center w-full py-8 bg-linear-to-b from-[#80A6DF] via-[#B1CFE7] to-[#B1CFE7] rounded-lg'>
           <span className='flex flex-col items-center justify-center flex-1 p-8'>
             <h3 className='text-2xl font-semibold text-white'>{data.presidents?.[0]?.name}</h3>
             <h3 className='text-xl text-[#28599E] font-bold'>{data.presidents?.[0]?.role}</h3>
@@ -76,7 +78,7 @@ export default async function Team() {
               alt="presidents" 
               width={800} 
               height={600}
-              className="shrink-0"
+              className="shrink-0 rounded-lg"
             />
           )}
           <span className='flex flex-col items-center justify-center flex-1 p-8'>
