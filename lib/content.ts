@@ -307,6 +307,11 @@ export const contactPageContent = {
 }
 
 // Team page content - for fallback and static content
+export const presidentsMembers = [
+  { name: "Sara Guglielmini", role: "Co-President", photo: "/assets/teams/presidents.jpg" },
+  { name: "Linus Pui", role: "Co-President", photo: "/assets/teams/presidents.jpg" },
+]
+
 export const teamPageContent = {
   hero: {
     tagline: ['OUR TEAM'],
@@ -323,5 +328,61 @@ export const teamPageContent = {
     marketingTeam: 'Marketing Team',
     financeTeam: 'Finance Team',
   },
+  images: {
+    execTeam: '/assets/teams/exec-team.jpg',
+    presidents: '/assets/teams/presidents.jpg',
+  },
   blockquote: `“Since our founding in 2012, the SFU Accounting Student Association (ASA) has been dedicated to providing meaningful professional and personal development opportunities for students pursuing accounting. Guided by our core values—Aspire, Share, and Achieve—we strive to make a positive impact within our community. Each year, we engage the Beedie community through our pillar initiatives, including networking events, our mentorship program, the volunteer tax program, and the ACHIEVE Case Competition. Supported by a team of 36 committed members, we continue to expand and enhance opportunities for students year after year.”`,
 }
+
+export const eventTeamMembers = [
+  { name: "Guilherme", role: "Co-Director", photo: "/assets/teams/event/guilherme.jpg" },
+  { name: "Jestin", role: "Co-Director", photo: "/assets/teams/event/jestin.jpg" },
+  { name: "Mattias", role: "Coordinator", photo: "/assets/teams/event/mattias.jpg" },
+  { name: "Jasveen", role: "Coordinator", photo: "/assets/teams/event/jasveen.jpg" },
+  { name: "Liam", role: "Coordinator", photo: "/assets/teams/event/liam.jpg" },
+  { name: "Stephanie", role: "Coordinator", photo: "/assets/teams/event/stephanie.jpg" },
+  { name: "Cindy", role: "Coordinator", photo: "/assets/teams/event/cindy.jpg" }
+]
+
+export const externalRelationsMembers = [
+  { name: "Jaymar", role: "External Director", photo: "/assets/teams/external/jaymar.jpg" },
+  { name: "Ehsan", role: "Coordinator", photo: "/assets/teams/external/ehsan.jpg" },
+  { name: "Quan", role: "Coordinator", photo: "/assets/teams/external/quan.jpg" },
+  { name: "Patty", role: "Coordinator", photo: "/assets/teams/external/patty.jpg" },
+  { name: "Francine", role: "Coordinator", photo: "/assets/teams/external/francine.jpg" },
+  { name: "Lauchlin", role: "Coordinator", photo: "/assets/teams/external/lauchlin.jpg" },
+]
+
+export const internalRelationsMembers = [
+  { name: "Braden", role: "Director", photo: "/assets/teams/internal/braden.jpg" },
+  { name: "Anson", role: "Coordinator", photo: "/assets/teams/internal/anson.jpg" },
+  { name: "Ethan", role: "Coordinator", photo: "/assets/teams/internal/ethan.jpg" },
+  { name: "Emma", role: "Coordinator", photo: "/assets/teams/internal/emma.jpg" },
+  { name: "Cynthia", role: "Coordinator", photo: "/assets/teams/internal/cynthia.jpg" },
+  { name: "Nicole", role: "Coordinator", photo: "/assets/teams/internal/nicole.jpg" },
+]
+
+export const designTeamMembers = [
+  { name: "Caleb", role: "Director", photo: "/assets/teams/design/caleb.jpg" },
+  { name: "Anthony", role: "Coordinator", photo: "/assets/teams/design/anthony.jpg" },
+  { name: "Emily", role: "Coordinator", photo: "/assets/teams/design/emily.jpg" },
+  { name: "Priya", role: "Coordinator", photo: "/assets/teams/design/priya.jpg" },
+  { name: "Nathan Chen", role: "Coordinator", photo: "/assets/teams/design/nathan-chen.jpg" },
+  { name: "Nathan Chu", role: "Coordinator", photo: "/assets/teams/design/nathan-chu.jpg" },
+]
+
+export const marketingTeamMembers = [
+  { name: "Doris", role: "Director", photo: "/assets/teams/marketing/doris.jpg" },
+  { name: "Crystal", role: "Coordinator", photo: "/assets/teams/marketing/crystal.jpg" },
+  { name: "Jerry", role: "Coordinator", photo: "/assets/teams/marketing/jerry.jpg" },
+  { name: "Jocelyn", role: "Coordinator", photo: "/assets/teams/marketing/jocelyn.jpg" },
+  { name: "Edward", role: "Coordinator", photo: "/assets/teams/marketing/edward.jpg" },
+]
+
+export const financeTeamMembers = [
+  { name: "Sandy", role: "Director", photo: "/assets/teams/finance/sandy.jpg" },
+  { name: "Justin", role: "Finance Co-Director", photo: "/assets/teams/finance/justin.jpg" },
+  { name: "Jessie", role: "Finance Coordinator", photo: "/assets/teams/finance/jessie.jpg" },
+  { name: "Solomon", role: "Finance Coordinator", photo: "/assets/teams/finance/solomon.jpg" },
+]
