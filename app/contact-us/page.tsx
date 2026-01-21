@@ -181,7 +181,7 @@ export default function ContactUs() {
                         required: 'First name is required',
                         minLength: { value: 2, message: 'First name must be at least 2 characters' }
                       })}
-                      className={`w-full px-3 py-2 text-sm border rounded-lg focus:border-[#28599E] focus:ring-[#28599E]/20 ${errors.firstName ? 'border-red-500' : 'border-gray-300'}`}
+                      className={`w-full h-12 px-3 py-2 text-sm border rounded-lg focus:border-[#28599E] focus:ring-[#28599E]/20 ${errors.firstName ? 'border-red-500' : 'border-gray-300'}`}
                     />
                     {errors.firstName && (
                       <p className="text-red-500 text-xs mt-1">{errors.firstName.message}</p>
@@ -199,7 +199,7 @@ export default function ContactUs() {
                         required: 'Last name is required',
                         minLength: { value: 2, message: 'Last name must be at least 2 characters' }
                       })}
-                      className={`w-full px-3 py-2 text-sm border rounded-lg focus:border-[#28599E] focus:ring-[#28599E]/20 ${errors.lastName ? 'border-red-500' : 'border-gray-300'}`}
+                      className={`w-full h-12 px-3 py-2 text-sm border rounded-lg focus:border-[#28599E] focus:ring-[#28599E]/20 ${errors.lastName ? 'border-red-500' : 'border-gray-300'}`}
                     />
                     {errors.lastName && (
                       <p className="text-red-500 text-xs mt-1">{errors.lastName.message}</p>
@@ -224,7 +224,7 @@ export default function ContactUs() {
                           message: 'Please enter a valid email address'
                         }
                       })}
-                      className={`w-full px-3 py-2 text-sm border rounded-lg focus:border-[#28599E] focus:ring-[#28599E]/20 ${errors.email ? 'border-red-500' : 'border-gray-300'}`}
+                      className={`w-full h-12 px-3 py-2 text-sm border rounded-lg focus:border-[#28599E] focus:ring-[#28599E]/20 ${errors.email ? 'border-red-500' : 'border-gray-300'}`}
                     />
                     {errors.email && (
                       <p className="text-red-500 text-xs mt-1">{errors.email.message}</p>
@@ -239,7 +239,7 @@ export default function ContactUs() {
                       type="text"
                       placeholder="How can we help?"
                       {...register('subject')}
-                      className="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:border-[#28599E] focus:ring-[#28599E]/20"
+                      className="w-full h-12 px-3 py-2 text-sm border border-gray-300 rounded-lg focus:border-[#28599E] focus:ring-[#28599E]/20"
                     />
                   </div>
                 </div>
@@ -253,7 +253,7 @@ export default function ContactUs() {
                     id="message"
                     placeholder="Tell us more about your inquiry..."
                     {...register('message')}
-                    className="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:border-[#28599E] focus:ring-[#28599E]/20 resize-none grow min-h-[120px]"
+                    className="w-full h-12 px-3 py-2 text-sm border border-gray-300 rounded-lg focus:border-[#28599E] focus:ring-[#28599E]/20 resize-none grow min-h-[120px]"
                   />
                 </div>
 
