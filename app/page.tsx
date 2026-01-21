@@ -32,7 +32,7 @@ async function getHomeData() {
 
 const heroContent = {
   tagline: ['ACCOUNTING STUDENT ASSOCIATION (ASA)'],
-  teamImage: '/assets/teams/team.jpg',
+  teamImage: '/assets/home/team.jpg',
   // description: 'The SFU Accounting Student Association (ASA) is an organization made up of highly-dedicated students with the mission of assisting students towards their professional life. In order to accomplish this mission, our association provides three types of services: facilitation of information and networking, self-growth, and fellowship.'
 }
 
