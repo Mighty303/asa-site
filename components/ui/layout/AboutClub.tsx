@@ -11,9 +11,6 @@ export default function AboutClub({
 }: AboutClubProps) {
   return (
     <section className="container mx-auto px-4 md:px-4 pt-12 md:pt-32 pb-12 w-full">
-      {/* <h2 className="text-4xl md:text-5xl font-bold text-[#28599E] mb-8">
-        {heading}
-      </h2> */}
       <h2 className="text-4xl font-bold uppercase mb-12 text-[#28599E]">
         {heading}
       </h2>

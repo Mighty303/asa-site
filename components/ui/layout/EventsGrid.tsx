@@ -1,58 +1,24 @@
 import Image from 'next/image'
 
-interface Event {
+export interface Event {
   title: string
   subtitle?: string
   description: string
   image: string
 }
 
-const events: Event[] = [
-  {
-    title: 'MIX & MINGLE',
-    subtitle: 'Networking Event',
-    description: 'Our signature networking event, Mix & Mingle, launches Spring Recruit by giving students and firm representatives the opportunity to build meaningful connections before the interview and offer phases in May and June.',
-    image: '/assets/events/mix-mingle.jpg',
-  },
-  {
-    title: 'MIDSUMMER MIXER',
-    subtitle: 'Networking Event',
-    description: 'With Fall Recruit approaching, our annual Midsummer Mixer helps guide students through the final major recruiting season of the year, offering chances to build new connections with professionals.',
-    image: '/assets/events/midsummer.jpg',
-  },
-  {
-    title: 'HARVEST HORIZONS',
-    subtitle: 'Networking Event',
-    description: 'A low-barrier and casual networking event, Harvest Horizons offers a relaxed evening for students and firms to connect and build relationships in a comfortable setting.',
-    image: '/assets/events/harvest-horizons.jpg',
-  },
-  {
-    title: 'MIDSIZE MOTION',
-    subtitle: 'Networking Event',
-    description: 'Midsize Motion brings together students and representatives from midsize and growth-oriented accounting firms to foster genuine conversations and meaningful connections.',
-    image: '/assets/events/midsize-motion.jpg',
-  },
-  {
-    title: 'MENTORSHIP PROGRAM',
-    subtitle: 'Skills-Development Initiative',
-    description: 'The ASA Mentorship Program (AMP) connects junior accounting students with experienced senior students and industry professionals from October to December.',
-    image: '/assets/events/mentorship.jpg',
-  },
-  {
-    title: 'ACHIEVE',
-    subtitle: 'Case Competition',
-    description: "ASA's ACHIEVE Case Competition invites both beginner and experienced case competitors to tackle a unique accounting-focused case, partnering with CPABC and Big Four firms.",
-    image: '/assets/events/achieve.jpg',
-  },
-]
+interface EventsGridProps {
+  heading?: string
+  events: Event[]
+}
 
-export default function EventsGrid() {
+export default function EventsGrid({ heading = 'Our Events', events }: EventsGridProps) {
   return (
-    <section className="py-16 md:py-24">
+    <section className="py-16 md:py-12">
       <div className="container mx-auto px-4 md:px-12">
-        <h2 className="text-3xl md:text-4xl font-bold text-[#28599E] text-center mb-12">
-          Our Events
-        </h2>
+        {/* <h2 className="text-3xl md:text-4xl font-bold text-[#28599E] text-center mb-12">
+          {heading}
+        </h2> */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {events.map((event, index) => (
             <div 

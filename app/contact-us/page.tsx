@@ -6,6 +6,7 @@ import Hero from '@/components/ui/layout/Hero'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { Button } from '@/components/ui/button'
+import { contactHeroContent, contactPageContent } from '@/lib/content'
 
 interface ContactFormData {
   firstName: string
@@ -13,10 +14,6 @@ interface ContactFormData {
   email: string
   subject?: string
   message?: string
-}
-
-const heroContent = {
-  tagline: ['CONTACT US'],
 }
 
 export default function ContactUs() {
@@ -35,35 +32,31 @@ export default function ContactUs() {
       // Simulate API call
       await new Promise(resolve => setTimeout(resolve, 1000))
       
-      toast.success('Message sent successfully!', {
-        description: 'Thank you for contacting us. We will get back to you within 1-7 business days.',
+      toast.success(contactPageContent.toast.successTitle, {
+        description: contactPageContent.toast.successDescription,
       })
       reset()
     } catch (error) {
-      toast.error('Failed to send message', {
-        description: 'Please try again or contact us directly at sfuasa.pres@gmail.com',
+      toast.error(contactPageContent.toast.errorTitle, {
+        description: contactPageContent.toast.errorDescription,
       })
     }
   }
 
   return (
     <main className="min-h-screen">
-      <Hero content={heroContent} />
+      <Hero content={contactHeroContent} />
 
       {/* Contact Info Section */}
       <section className="container mx-auto px-4 py-16 md:py-20 max-w-4xl">
         <h2 className="text-4xl md:text-5xl font-bold text-[#28599E] mb-6">
-          Contact Us
+          {contactPageContent.heading}
         </h2>
-        <p className="text-md">
-          Thank you for contacting the SFU Accounting Student Association.
-        </p>
-        <p className="text-md">
-          Please submit your inquiry using the form below.
-        </p>
-        <p className="text-md">
-          You can expect a response in 1-7 business days.
-        </p>
+        {contactPageContent.intro.map((line, index) => (
+          <p key={index} className="text-md">
+            {line}
+          </p>
+        ))}
       </section>
 
       {/* Contact Form Section */}
@@ -73,7 +66,7 @@ export default function ContactUs() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
               <label htmlFor="firstName" className="block text-gray-700 font-medium mb-2">
-                First Name *
+                {contactPageContent.form.firstName.label}
               </label>
               <Input 
                 id="firstName"
@@ -90,7 +83,7 @@ export default function ContactUs() {
             </div>
             <div>
               <label htmlFor="lastName" className="block text-gray-700 font-medium mb-2">
-                Last Name *
+                {contactPageContent.form.lastName.label}
               </label>
               <Input 
                 id="lastName"
@@ -110,7 +103,7 @@ export default function ContactUs() {
           {/* Email Field */}
           <div>
             <label htmlFor="email" className="block text-gray-700 font-medium mb-2">
-              Email *
+              {contactPageContent.form.email.label}
             </label>
             <Input 
               id="email"
@@ -132,7 +125,7 @@ export default function ContactUs() {
           {/* Subject Field */}
           <div>
             <label htmlFor="subject" className="block text-gray-700 font-medium mb-2">
-              Subject
+              {contactPageContent.form.subject.label}
             </label>
             <Input 
               id="subject"
@@ -145,7 +138,7 @@ export default function ContactUs() {
           {/* Message Field */}
           <div>
             <label htmlFor="message" className="block text-gray-700 font-medium mb-2">
-              Leave us a message...
+              {contactPageContent.form.message.label}
             </label>
             <Textarea 
               id="message"
@@ -162,14 +155,14 @@ export default function ContactUs() {
               disabled={isSubmitting}
               className="bg-[#5293BB] hover:bg-[#3d7496] text-white font-semibold px-12 py-6 text-lg rounded-md shadow-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              {isSubmitting ? 'Submitting...' : 'Submit'}
+              {isSubmitting ? contactPageContent.form.submittingButton : contactPageContent.form.submitButton}
             </Button>
           </div>
         </form>
 
         {/* Additional Note */}
         <p className="text-sm text-gray-600 mt-8">
-          *Submissions are directly sent to the ASA President&apos;s inbox
+          {contactPageContent.form.submissionNote}
         </p>
       </section>
 
@@ -178,15 +171,15 @@ export default function ContactUs() {
         {/* Prefer Email */}
         <div>
           <h3 className="text-3xl md:text-4xl font-bold text-[#28599E] mb-4">
-            Prefer Email?
+            {contactPageContent.alternativeContact.email.heading}
           </h3>
           <p className="text-md text-gray-800">
-            You may also contact us at{' '}
+            {contactPageContent.alternativeContact.email.text}{' '}
             <a 
-              href="mailto:sfuasa.pres@gmail.com" 
+              href={`mailto:${contactPageContent.alternativeContact.email.address}`}
               className="text-[#5293BB] hover:underline font-semibold"
             >
-              sfuasa.pres@gmail.com
+              {contactPageContent.alternativeContact.email.address}
             </a>
           </p>
         </div>
@@ -194,15 +187,15 @@ export default function ContactUs() {
         {/* Tax Program */}
         <div>
           <h3 className="text-3xl md:text-4xl font-bold text-[#28599E] mb-4">
-            Questions About Our Tax Program?
+            {contactPageContent.alternativeContact.taxProgram.heading}
           </h3>
           <p className="text-md text-gray-800">
-            Reach our Project Managers at{' '}
+            {contactPageContent.alternativeContact.taxProgram.text}{' '}
             <a 
-              href="mailto:sfutax@gmail.com" 
+              href={`mailto:${contactPageContent.alternativeContact.taxProgram.address}`}
               className="text-[#5293BB] hover:underline font-semibold"
             >
-              sfutax@gmail.com
+              {contactPageContent.alternativeContact.taxProgram.address}
             </a>
           </p>
         </div>
@@ -210,10 +203,10 @@ export default function ContactUs() {
         {/* Social Media */}
         <div>
           <h3 className="text-3xl md:text-4xl font-bold text-[#28599E] mb-4">
-            Social Media
+            {contactPageContent.alternativeContact.socialMedia.heading}
           </h3>
           <p className="text-md text-gray-800">
-            Stay connected with us on Instagram, LinkedIn, and TikTok.
+            {contactPageContent.alternativeContact.socialMedia.text}
           </p>
         </div>
       </section>

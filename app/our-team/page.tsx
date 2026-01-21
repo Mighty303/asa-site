@@ -87,7 +87,7 @@ export default async function Team() {
           </span>
         </div>
         <blockquote>
-          <p className='text-center italic my-12 font-semibold'>“Since our founding in 2012, the SFU Accounting Student Association (ASA) has been dedicated to providing meaningful professional and personal development opportunities for students pursuing accounting. Guided by our core values—Aspire, Share, and Achieve—we strive to make a positive impact within our community. Each year, we engage the Beedie community through our pillar initiatives, including networking events, our mentorship program, the volunteer tax program, and the ACHIEVE Case Competition. Supported by a team of 36 committed members, we continue to expand and enhance opportunities for students year after year.”</p>
+          <p className='text-center my-12 font-semibold'>“Since our founding in 2012, the SFU Accounting Student Association (ASA) has been dedicated to providing meaningful professional and personal development opportunities for students pursuing accounting. Guided by our core values—Aspire, Share, and Achieve—we strive to make a positive impact within our community. Each year, we engage the Beedie community through our pillar initiatives, including networking events, our mentorship program, the volunteer tax program, and the ACHIEVE Case Competition. Supported by a team of 36 committed members, we continue to expand and enhance opportunities for students year after year.”</p>
         </blockquote>
       </section>
       <TeamCarousel 

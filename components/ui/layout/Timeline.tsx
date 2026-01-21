@@ -26,7 +26,7 @@ export default function Timeline({
 }: TimelineProps) {
   return (
     <section className="container mx-auto px-4 py-16 md:py-24">
-      <h2 className="text-4xl md:text-5xl font-bold text-[#28599E] text-center mb-16 uppercase italic">
+      <h2 className="text-4xl md:text-5xl font-bold text-[#28599E] text-center mb-16 uppercase">
         {heading}
       </h2>
       

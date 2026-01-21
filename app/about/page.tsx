@@ -5,6 +5,12 @@ import { urlFor } from '@/lib/sanity'
 import Pillars from '@/components/ui/layout/Pillars'
 import Timeline from '@/components/ui/layout/Timeline'
 import EventsGrid from '@/components/ui/layout/EventsGrid'
+import { 
+  aboutHeroContent, 
+  pillarsContent, 
+  timelineContent, 
+  eventsContent 
+} from '@/lib/content'
 
 async function getHomeData() {
   const query = `{
@@ -31,11 +37,6 @@ async function getHomeData() {
   return client.fetch(query)
 }
 
-const heroContent = {
-  tagline: ['ABOUT US'],
-  description: 'At the SFU Accounting Student Association (ASA), our mission is to empower students on their journey to a successful and fulfilling professional life. We are dedicated to providing invaluable resources, fostering personal growth, and creating valuable experiences within our tight-knit community.'
-}
-
 
 export default async function About() {
   const data = await getHomeData()
@@ -46,10 +47,14 @@ export default async function About() {
   
   return (
     <main className="min-h-screen">
-      <Hero content={heroContent} />
-      <Pillars />
-      <Timeline />
-      <EventsGrid />
+      <Hero content={aboutHeroContent} />
+      <Pillars heading={pillarsContent.heading} pillars={pillarsContent.pillars} />
+      <Timeline 
+        heading={timelineContent.heading} 
+        events={timelineContent.events} 
+        footnote={timelineContent.footnote} 
+      />
+      <EventsGrid events={eventsContent} />
     </main>
   )
 }

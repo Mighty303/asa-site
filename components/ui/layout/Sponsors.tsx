@@ -109,10 +109,6 @@ export default function Sponsors({ content }: SponsorsProps) {
           </div>
         </div>
       </div>
-      
-      <p className="text-lg text-black">
-        {content.description}
-      </p>
     </section>
   )
 }

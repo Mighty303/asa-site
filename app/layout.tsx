@@ -4,6 +4,7 @@ import { Platypi } from 'next/font/google'
 import Navbar from '@/components/ui/layout/NavBar'
 import Footer from '@/components/ui/layout/Footer'
 import { Toaster } from '@/components/ui/sonner'
+import { footerContent } from '@/lib/content'
 
 const platypi = Platypi({ 
   subsets: ['latin'],
@@ -44,7 +45,7 @@ export default function RootLayout({
       <body className={platypi.className}>
         <Navbar />
         {children}
-        <Footer />
+        <Footer content={footerContent} />
         <Toaster position="bottom-right" toastOptions={{ style: { background: '#22c55e', color: 'white' } }} />
       </body>
     </html>

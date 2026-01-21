@@ -1,6 +1,70 @@
 import Image from 'next/image'
 
-export default function TaxProgramContent() {
+export interface TaxProgramContent {
+  // What is Tax Program Section
+  introSection: {
+    heading: string
+    description: string
+    image: string
+    imageAlt: string
+    statNumber: string
+    statDescription: string
+  }
+  // Registration CTA Section
+  registrationSection: {
+    statusText: string
+    deadlineText: string
+    questionsHeading: string
+    questions: string[]
+    volunteerMessage: string
+    ctaText: string
+    ctaLink: string
+    sideDescription: string
+  }
+  // Eligibility Section
+  eligibilitySection: {
+    heading: string
+    subtitle: string
+    incomeThresholds: {
+      image: string
+      imageAlt: string
+      heading: string
+      items: string[]
+    }
+    additionalInfo: {
+      image: string
+      imageAlt: string
+      heading: string
+      items: string[]
+      note: string
+    }
+  }
+  // What We Cannot Help With Section
+  exclusionsSection: {
+    heading: string
+    subtitle: string
+    image: string
+    imageAlt: string
+    items: string[]
+  }
+  // Footer CTA Section
+  footerCTA: {
+    heading: string
+    dateText: string
+    ctaText: string
+    ctaLink: string
+    craText: string
+    craLink: string
+    contactText: string
+    contactEmail: string
+  }
+}
+
+interface TaxProgramProps {
+  content: TaxProgramContent
+}
+
+export default function TaxProgramContent({ content }: TaxProgramProps) {
   return (
     <div className="w-full">
       {/* What is the Tax Program Section */}
@@ -8,24 +72,22 @@ export default function TaxProgramContent() {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div>
             <h2 className="text-3xl md:text-4xl font-bold text-[#28599E] mb-6">
-              What is the Tax Program?
+              {content.introSection.heading}
             </h2>
-            <p className="text-lg text-gray-700 leading-relaxed mb-6">
-              The ASA Tax Program is a free tax filing service for eligible SFU community members. Our dedicated student volunteers are trained by the <strong>Canada Revenue Agency (CRA)</strong> to prepare income tax returns for those with low income and simple, non-complex tax situations.
-            </p>
+            <p className="text-lg text-gray-700 leading-relaxed mb-6" dangerouslySetInnerHTML={{ __html: content.introSection.description }} />
           </div>
           <div className="relative">
             <Image
-              src="/assets/teams/tax-program/tax-hero.jpg"
-              alt="Tax Program Team"
+              src={content.introSection.image}
+              alt={content.introSection.imageAlt}
               width={600}
               height={450}
               className="rounded-xl object-cover w-full"
             />
             <div className="absolute bottom-0 left-0 right-0 bg-[#28599E]/70 backdrop-blur-sm text-white p-6 rounded-b-xl">
               <div className="flex items-center gap-6">
-                <div className="text-5xl font-bold">800+</div>
-                <p className="text-lg">Returns filed last year, helping over 1,000 members of the SFU community</p>
+                <div className="text-5xl font-bold">{content.introSection.statNumber}</div>
+                <p className="text-lg">{content.introSection.statDescription}</p>
               </div>
             </div>
           </div>
@@ -39,30 +101,30 @@ export default function TaxProgramContent() {
             <div className="text-white">
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-3 h-3 bg-green-400 rounded-full animate-pulse" />
-                <p className="text-xl font-bold">2026 Client Applications Now Open!</p>
+                <p className="text-xl font-bold">{content.registrationSection.statusText}</p>
               </div>
               <p className="text-lg text-white/90 mb-6">
-                Application closes on <span className="font-semibold">February 20th, 2026 at 11:59 PM</span>
+                Application closes on <span className="font-semibold">{content.registrationSection.deadlineText}</span>
               </p>
-              <h3 className="text-2xl font-bold mb-4">Are you:</h3>
+              <h3 className="text-2xl font-bold mb-4">{content.registrationSection.questionsHeading}</h3>
               <ul className="space-y-2 mb-8 text-white/90">
-                <li>• Having trouble filing your tax returns?</li>
-                <li>• Never filed a tax return before?</li>
-                <li>• Don&apos;t have time to file?</li>
+                {content.registrationSection.questions.map((question, index) => (
+                  <li key={index}>• {question}</li>
+                ))}
               </ul>
-              <p className="text-lg font-semibold mb-6">Our ASA tax volunteers are here for you!</p>
+              <p className="text-lg font-semibold mb-6">{content.registrationSection.volunteerMessage}</p>
               <a 
-                href="https://docs.google.com/forms/d/e/1FAIpQLSdua4T4lEouP50tlToOrt83xGO3NtmBg-U0POrflaZJrVwOBQ/viewform"
+                href={content.registrationSection.ctaLink}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block px-8 py-4 bg-white text-[#28599E] font-semibold rounded-full hover:bg-gray-100 transition-colors"
               >
-                Register Now
+                {content.registrationSection.ctaText}
               </a>
             </div>
             <div>
               <p className="text-white/90 text-lg leading-relaxed">
-                Register to be a client and have your tax returns filed by dedicated volunteers trained by the Canada Revenue Agency (CRA) and SFU Accounting Student Association (ASA). We help preserve benefits and financial entitlements while providing peace of mind for meeting tax filing obligations.
+                {content.registrationSection.sideDescription}
               </p>
             </div>
           </div>
@@ -72,8 +134,8 @@ export default function TaxProgramContent() {
       {/* Eligibility Criteria Section */}
       <section className="container mx-auto px-4 md:px-12 py-16 md:py-24">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-[#28599E] mb-4">Eligibility Criteria</h2>
-          <p className="text-lg text-gray-600">You may qualify if your income fits within the following limits:</p>
+          <h2 className="text-3xl md:text-4xl font-bold text-[#28599E] mb-4">{content.eligibilitySection.heading}</h2>
+          <p className="text-lg text-gray-600">{content.eligibilitySection.subtitle}</p>
         </div>
         
         <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
@@ -81,22 +143,16 @@ export default function TaxProgramContent() {
           <div className="bg-gray-100 rounded-xl p-8">
             <div className="mb-6">
               <Image
-                src="/assets/teams/tax-program/eligible.jpg"
-                alt="Tax volunteers helping clients"
+                src={content.eligibilitySection.incomeThresholds.image}
+                alt={content.eligibilitySection.incomeThresholds.imageAlt}
                 width={500}
                 height={300}
                 className="rounded-lg object-cover w-full h-48"
               />
             </div>
-            <h3 className="font-bold text-[#28599E] mb-4 text-xl">Income Thresholds</h3>
+            <h3 className="font-bold text-[#28599E] mb-4 text-xl">{content.eligibilitySection.incomeThresholds.heading}</h3>
             <ul className="space-y-3">
-              {[
-                'Single Person: $40,000 or less',
-                'Couple (no dependents): $55,000 or less',
-                'Three-person family: $60,000 or less',
-                'Four-person family: $65,000 or less',
-                'Five-person family: $70,000 or less',
-              ].map((item, index) => (
+              {content.eligibilitySection.incomeThresholds.items.map((item, index) => (
                 <li key={index} className="flex items-center gap-3 text-gray-700">
                   <div className="w-2 h-2 bg-[#28599E] rounded-full shrink-0" />
                   <span>{item}</span>
@@ -109,28 +165,24 @@ export default function TaxProgramContent() {
           <div className="bg-gray-100 rounded-xl p-8">
             <div className="mb-6">
               <Image
-                src="/assets/teams/tax-program/eligible-2.jpg"
-                alt="Tax program session"
+                src={content.eligibilitySection.additionalInfo.image}
+                alt={content.eligibilitySection.additionalInfo.imageAlt}
                 width={500}
                 height={300}
                 className="rounded-lg object-cover w-full h-48"
               />
             </div>
-            <h3 className="font-bold text-[#28599E] mb-4 text-xl">Additional Information</h3>
+            <h3 className="font-bold text-[#28599E] mb-4 text-xl">{content.eligibilitySection.additionalInfo.heading}</h3>
             <ul className="space-y-3 text-gray-700">
-              <li className="flex items-center gap-3">
-                <div className="w-2 h-2 bg-[#28599E] rounded-full shrink-0" />
-                <span>Each additional dependent: +$2,500 allowed income</span>
-              </li>
-              <li className="flex items-center gap-3">
-                <div className="w-2 h-2 bg-[#28599E] rounded-full shrink-0" />
-                <span>Interest income must be under $1,200</span>
-              </li>
+              {content.eligibilitySection.additionalInfo.items.map((item, index) => (
+                <li key={index} className="flex items-center gap-3">
+                  <div className="w-2 h-2 bg-[#28599E] rounded-full shrink-0" />
+                  <span>{item}</span>
+                </li>
+              ))}
             </ul>
             <div className="mt-6 p-4 bg-white rounded-lg border border-gray-200">
-              <p className="text-[#28599E]">
-                <strong>Have a spouse/partner?</strong> Register them separately, but mention each other&apos;s names in the appropriate section.
-              </p>
+              <p className="text-[#28599E]" dangerouslySetInnerHTML={{ __html: content.eligibilitySection.additionalInfo.note }} />
             </div>
           </div>
         </div>
@@ -142,16 +194,16 @@ export default function TaxProgramContent() {
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold text-[#28599E] mb-4">
-                What We Cannot Help With
+                {content.exclusionsSection.heading}
               </h2>
-              <p className="text-gray-600 text-lg">Volunteers do not complete returns with the following:</p>
+              <p className="text-gray-600 text-lg">{content.exclusionsSection.subtitle}</p>
             </div>
             
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div>
                 <Image
-                  src="/assets/teams/tax-program/volunteers.jpg"
-                  alt="Volunteer working"
+                  src={content.exclusionsSection.image}
+                  alt={content.exclusionsSection.imageAlt}
                   width={500}
                   height={400}
                   className="rounded-xl object-cover w-full"
@@ -160,17 +212,7 @@ export default function TaxProgramContent() {
               
               <div>
                 <ul className="space-y-3">
-                  {[
-                    'Business or rental income/expenses',
-                    'Self-employed individuals or employment expenses',
-                    'Deceased persons\' tax returns',
-                    'Capital gains or losses',
-                    'Major investments (RRSP, stocks, mutual funds, RESP)',
-                    'Investments outside Canada',
-                    'Foreign income',
-                    'Bankruptcy filings',
-                    'Non-residents during the tax year',
-                  ].map((item, index) => (
+                  {content.exclusionsSection.items.map((item, index) => (
                     <li key={index} className="flex items-center gap-3 text-gray-700">
                       <div className="w-5 h-5 bg-red-100 rounded-full flex items-center justify-center shrink-0">
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 text-red-500" viewBox="0 0 20 20" fill="currentColor">
@@ -190,24 +232,24 @@ export default function TaxProgramContent() {
       {/* Footer CTA */}
       <section className="bg-[#28599E] py-16">
         <div className="container mx-auto px-4 md:px-12 text-center">
-          <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">Ready to Get Started?</h3>
+          <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">{content.footerCTA.heading}</h3>
           <p className="text-white/90 text-lg mb-8">
-            <strong>Taxes will be filed March 8 - April 30, 2026</strong>
+            <strong>{content.footerCTA.dateText}</strong>
           </p>
           <a 
-            href="https://docs.google.com/forms/d/e/1FAIpQLSdua4T4lEouP50tlToOrt83xGO3NtmBg-U0POrflaZJrVwOBQ/viewform"
+            href={content.footerCTA.ctaLink}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block px-8 py-4 bg-white text-[#28599E] font-semibold text-lg rounded-full hover:bg-gray-100 transition-colors"
           >
-            Register as Client
+            {content.footerCTA.ctaText}
           </a>
           <div className="mt-8 text-white/80">
             <p className="mb-2">
-              For further information, visit the <a href="https://www.canada.ca/en/revenue-agency.html" target="_blank" rel="noopener noreferrer" className="underline hover:text-white transition-colors">CRA website</a>
+              {content.footerCTA.craText} <a href={content.footerCTA.craLink} target="_blank" rel="noopener noreferrer" className="underline hover:text-white transition-colors">CRA website</a>
             </p>
             <p>
-              Questions? Contact us at <a href="mailto:sfutax@gmail.com" className="underline hover:text-white transition-colors">sfutax@gmail.com</a>
+              {content.footerCTA.contactText} <a href={`mailto:${content.footerCTA.contactEmail}`} className="underline hover:text-white transition-colors">{content.footerCTA.contactEmail}</a>
             </p>
           </div>
         </div>
