@@ -81,12 +81,12 @@ export default function TaxProgramContent({ content }: TaxProgramProps) {
               src={content.introSection.image}
               alt={content.introSection.imageAlt}
               width={600}
-              height={450}
-              className="rounded-xl object-cover w-full"
+              height={500}
+              className="rounded-xl object-cover w-full min-h-96"
             />
-            <div className="absolute bottom-0 left-0 right-0 bg-[#28599E]/70 backdrop-blur-sm text-white p-8 rounded-b-xl">
+            <div className="absolute bottom-0 left-0 right-0 bg-[#28599E]/70 backdrop-blur-sm text-white p-4 md:p-6 lg:pg-8 rounded-b-xl">
               <div className="flex items-center gap-6">
-                <div className="text-5xl font-bold">{content.introSection.statNumber}</div>
+                <div className="text-3xl xl:text-4xl font-bold">{content.introSection.statNumber}</div>
                 <p className="text-lg">{content.introSection.statDescription}</p>
               </div>
             </div>

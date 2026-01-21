@@ -1,5 +1,5 @@
 import Hero from '@/components/ui/layout/Hero'
-import TeamGrid from '@/components/ui/layout/TeamCarousel'
+import TeamGrid from '@/components/ui/layout/TeamGrid'
 import { client, urlFor } from '@/lib/sanity'
 import Image from 'next/image'
 import { teamPageContent } from '@/lib/content'
