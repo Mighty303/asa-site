@@ -2,6 +2,7 @@ import Hero from '@/components/ui/layout/Hero'
 import TeamGrid from '@/components/ui/layout/TeamCarousel'
 import { client, urlFor } from '@/lib/sanity'
 import Image from 'next/image'
+import { teamPageContent } from '@/lib/content'
 
 // Revalidate the page every 60 seconds
 export const revalidate = 60
@@ -32,8 +33,8 @@ export default async function Team() {
   const data = await getTeamData()
   
   const heroContent = {
-    tagline: data.page?.heroTagline || 'Our Team',
-    description: data.page?.heroDescription || 'Learn more about the ASA team members'
+    tagline: teamPageContent.hero.tagline,
+    description: teamPageContent.hero.description
   }
   
   return (
@@ -50,7 +51,7 @@ export default async function Team() {
               className='rounded-lg'
             />
           )}
-          <h2 className="text-4xl font-bold my-12 text-[#28599E]">ASA 2025/2026 Team</h2>
+          <h2 className="text-4xl font-bold my-12 text-[#28599E]">{teamPageContent.headings.fullTeam}</h2>
         </div>
         <div className="container flex flex-col-reverse md:flex-row-reverse justify-center items-center gap-8 mx-auto px-4 pt-32 pb-20">
           {data.page?.executiveTeamImage && (
@@ -62,11 +63,11 @@ export default async function Team() {
               className='rounded-lg'
             />
           )}
-          <h2 className="text-4xl font-bold my-12 text-[#28599E]">Executive Team</h2>
+          <h2 className="text-4xl font-bold my-12 text-[#28599E]">{teamPageContent.headings.executiveTeam}</h2>
         </div>
       </section>
       <section className='min-h-screen flex flex-col items-center mx-auto w-[90%]'>
-        <h2 className="text-4xl font-bold my-12 text-[#28599E]">Presidents</h2>
+        <h2 className="text-4xl font-bold my-12 text-[#28599E]">{teamPageContent.headings.presidents}</h2>
         <div className='flex flex-col md:flex-row items-center w-full py-8 bg-linear-to-b from-[#80A6DF] via-[#B1CFE7] to-[#B1CFE7] rounded-lg'>
           <span className='flex flex-col items-center justify-center flex-1 p-8'>
             <h3 className='text-2xl font-semibold text-white'>{data.presidents?.[0]?.name}</h3>
@@ -87,11 +88,11 @@ export default async function Team() {
           </span>
         </div>
         <blockquote>
-          <p className='text-center my-12 font-semibold'>“Since our founding in 2012, the SFU Accounting Student Association (ASA) has been dedicated to providing meaningful professional and personal development opportunities for students pursuing accounting. Guided by our core values—Aspire, Share, and Achieve—we strive to make a positive impact within our community. Each year, we engage the Beedie community through our pillar initiatives, including networking events, our mentorship program, the volunteer tax program, and the ACHIEVE Case Competition. Supported by a team of 36 committed members, we continue to expand and enhance opportunities for students year after year.”</p>
+          <p className='text-center my-12 font-semibold'>{teamPageContent.blockquote}</p>
         </blockquote>
       </section>
       <TeamGrid 
-        title="Event Team" 
+        title={teamPageContent.headings.eventTeam} 
         members={[
           { name: "Guilherme", role: "Co-Director", photo: "/assets/teams/event/guilherme.jpg" },
           { name: "Jestin", role: "Co-Director", photo: "/assets/teams/event/jestin.jpg" },
@@ -103,7 +104,7 @@ export default async function Team() {
         ]}
       />
       <TeamGrid 
-        title="External Relations Team" 
+        title={teamPageContent.headings.externalRelations} 
         members={[
           { name: "Jaymar", role: "External Director", photo: "/assets/teams/external/jaymar.jpg" },
           { name: "Ehsan", role: "Coordinator", photo: "/assets/teams/external/ehsan.jpg" },
@@ -114,7 +115,7 @@ export default async function Team() {
         ]}
       />
       <TeamGrid 
-        title="Internal Relations Team" 
+        title={teamPageContent.headings.internalRelations} 
         members={[
           { name: "Braden", role: "Director", photo: "/assets/teams/internal/braden.jpg" },
           { name: "Anson", role: "Coordinator", photo: "/assets/teams/internal/anson.jpg" },
@@ -125,7 +126,7 @@ export default async function Team() {
         ]}
       />
       <TeamGrid 
-        title="Design Team" 
+        title={teamPageContent.headings.designTeam} 
         members={[
           { name: "Caleb", role: "Director", photo: "/assets/teams/design/caleb.jpg" },
           { name: "Anthony", role: "Coordinator", photo: "/assets/teams/design/anthony.jpg" },
@@ -136,7 +137,7 @@ export default async function Team() {
         ]}
       />
       <TeamGrid 
-        title="Marketing Team" 
+        title={teamPageContent.headings.marketingTeam} 
         members={[
           { name: "Doris", role: "Director", photo: "/assets/teams/marketing/doris.jpg" },
           { name: "Crystal", role: "Coordinator", photo: "/assets/teams/marketing/crystal.jpg" },
@@ -146,7 +147,7 @@ export default async function Team() {
         ]}
       />
       <TeamGrid 
-        title="Finance Team" 
+        title={teamPageContent.headings.financeTeam} 
         members={[
           { name: "Sandy", role: "Director", photo: "/assets/teams/finance/sandy.jpg" },
           { name: "Justin", role: "Finance Co-Director", photo: "/assets/teams/finance/justin.jpg" },

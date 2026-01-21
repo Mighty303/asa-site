@@ -171,7 +171,7 @@ export const homeHeroContent = {
 // Hero content for about page
 export const aboutHeroContent = {
   tagline: ['ABOUT US'],
-  description: 'At the SFU Accounting Student Association (ASA), our mission is to empower students on their journey to a successful and fulfilling professional life. We are dedicated to providing invaluable resources, fostering personal growth, and creating valuable experiences within our tight-knit community.',
+//   description: 'At the SFU Accounting Student Association (ASA), our mission is to empower students on their journey to a successful and fulfilling professional life. We are dedicated to providing invaluable resources, fostering personal growth, and creating valuable experiences within our tight-knit community.',
 }
 
 // Hero content for tax program page
@@ -308,34 +308,20 @@ export const contactPageContent = {
 
 // Team page content - for fallback and static content
 export const teamPageContent = {
-  heroDefault: {
-    tagline: ['Meet Our Team'],
-    description: 'Learn more about the ASA team members',
+  hero: {
+    tagline: ['OUR TEAM'],
+    // description: 'Learn more about the ASA team members',
   },
-  sections: {
-    fullTeam: {
-      heading: 'ASA 2025/2026 TEAM',
-    },
-    executiveTeam: {
-      heading: 'EXECUTIVE TEAM',
-    },
-    presidents: {
-      heading: 'PRESIDENTS',
-      quote: '"Since our founding in 2012, the SFU Accounting Student Association (ASA) has been dedicated to providing meaningful professional and personal development opportunities for students pursuing accounting. Guided by our core values—Aspire, Share, and Achieve—we strive to make a positive impact within our community. Each year, we engage the Beedie community through our pillar initiatives, including networking events, our mentorship program, the volunteer tax program, and the ACHIEVE Case Competition. Supported by a team of 36 committed members, we continue to expand and enhance opportunities for students year after year."',
-    },
+  headings: {
+    fullTeam: 'ASA 2025/2026 Team',
+    executiveTeam: 'Executive Team',
+    presidents: 'Presidents',
+    eventTeam: 'Event Team',
+    externalRelations: 'External Relations Team',
+    internalRelations: 'Internal Relations Team',
+    designTeam: 'Design Team',
+    marketingTeam: 'Marketing Team',
+    financeTeam: 'Finance Team',
   },
-  teams: {
-    event: {
-      title: 'Event Team',
-      members: [
-        { name: 'Guilherme', role: 'Events Co-Director', photo: '/assets/teams/event/guilherme.jpg' },
-        { name: 'Mattias', role: 'Events Co-Director', photo: '/assets/teams/event/mattias.jpg' },
-        { name: 'Jasveen', role: 'Event Coordinator', photo: '/assets/teams/event/jasveen.jpg' },
-        { name: 'Jestin', role: 'Event Coordinator', photo: '/assets/teams/event/jestin.jpg' },
-        { name: 'Liam', role: 'Event Coordinator', photo: '/assets/teams/event/liam.jpg' },
-        { name: 'Stephanie', role: 'Event Coordinator', photo: '/assets/teams/event/stephanie.jpg' },
-        { name: 'Cindy', role: 'Event Coordinator', photo: '/assets/teams/event/cindy.jpg' },
-      ],
-    },
-  },
+  blockquote: `“Since our founding in 2012, the SFU Accounting Student Association (ASA) has been dedicated to providing meaningful professional and personal development opportunities for students pursuing accounting. Guided by our core values—Aspire, Share, and Achieve—we strive to make a positive impact within our community. Each year, we engage the Beedie community through our pillar initiatives, including networking events, our mentorship program, the volunteer tax program, and the ACHIEVE Case Competition. Supported by a team of 36 committed members, we continue to expand and enhance opportunities for students year after year.”`,
 }
