@@ -49,11 +49,11 @@ export default async function About() {
     <main className="min-h-screen">
       <Hero content={aboutHeroContent} />
       <Pillars heading={pillarsContent.heading} pillars={pillarsContent.pillars} />
-      <Timeline 
+      {/* <Timeline 
         heading={timelineContent.heading} 
         events={timelineContent.events} 
         footnote={timelineContent.footnote} 
-      />
+      /> */}
       <EventsGrid events={eventsContent} />
     </main>
   )

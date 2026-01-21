@@ -29,7 +29,7 @@ export const footerContent: FooterContent = {
 
 // Tax Program CTA content - used on home page
 export const taxProgramCTAContent: TaxProgramCTAContent = {
-  heading: 'Join Our Free Tax Program!',
+  heading: 'JOIN OUR FREE TAX PROGRAM!',
   description: 'Get your taxes filed accurately and reliably for free by trained student volunteers today! We are now accepting CLIENT applications for the 2026 Tax Program.',
   ctaText: 'Register for Tax Program',
   ctaLink: 'https://docs.google.com/forms/d/e/1FAIpQLSdua4T4lEouP50tlToOrt83xGO3NtmBg-U0POrflaZJrVwOBQ/viewform',
@@ -123,36 +123,42 @@ export const eventsContent: Event[] = [
     subtitle: 'Networking Event',
     description: 'Our signature networking event, Mix & Mingle, launches Spring Recruit by giving students and firm representatives the opportunity to build meaningful connections before the interview and offer phases in May and June.',
     image: '/assets/events/mix-mingle.jpg',
+    date: 'September',
   },
   {
     title: 'MIDSUMMER MIXER',
     subtitle: 'Networking Event',
     description: 'With Fall Recruit approaching, our annual Midsummer Mixer helps guide students through the final major recruiting season of the year, offering chances to build new connections with professionals.',
     image: '/assets/events/midsummer.jpg',
+    date: 'October',
   },
   {
     title: 'HARVEST HORIZONS',
     subtitle: 'Networking Event',
     description: 'A low-barrier and casual networking event, Harvest Horizons offers a relaxed evening for students and firms to connect and build relationships in a comfortable setting.',
     image: '/assets/events/harvest-horizons.jpg',
+    date: 'October',
   },
   {
     title: 'MIDSIZE MOTION',
     subtitle: 'Networking Event',
     description: 'Midsize Motion brings together students and representatives from midsize and growth-oriented accounting firms to foster genuine conversations and meaningful connections.',
     image: '/assets/events/midsize-motion.jpg',
+    date: 'November',
   },
   {
     title: 'MENTORSHIP PROGRAM',
     subtitle: 'Skills-Development Initiative',
     description: 'The ASA Mentorship Program (AMP) connects junior accounting students with experienced senior students and industry professionals from October to December.',
     image: '/assets/events/mentorship.jpg',
+    date: 'January – April',
   },
   {
     title: 'ACHIEVE',
     subtitle: 'Case Competition',
     description: "ASA's ACHIEVE Case Competition invites both beginner and experienced case competitors to tackle a unique accounting-focused case, partnering with CPABC and Big Four firms.",
     image: '/assets/events/achieve.jpg',
+    date: 'March',
   },
 ]
 
