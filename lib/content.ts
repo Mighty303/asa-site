@@ -296,7 +296,12 @@ export const contactPageContent = {
     },
     socialMedia: {
       heading: 'Social Media',
-      text: 'Stay connected with us on Instagram, LinkedIn, and TikTok.',
+      text: 'Stay connected with us on',
+      links: [
+        { name: 'Instagram', url: 'https://www.instagram.com/sfuasa/' },
+        { name: 'LinkedIn', url: 'https://www.linkedin.com/company/sfu-accounting-student-association/' },
+        { name: 'TikTok', url: 'https://www.tiktok.com/@sfuasa' },
+      ],
     },
   },
 }
