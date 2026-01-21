@@ -164,7 +164,7 @@ export default function ContactUs() {
 
             {/* Right Column - Contact Form */}
             <div className="bg-white rounded-2xl shadow-lg p-6 md:p-8 border border-gray-100 flex flex-col">
-              <h3 className="text-2xl font-bold text-[#28599E] mb-6">Send us a message</h3>
+              <h3 className="text-2xl font-bold text-[#28599E] mb-6">Send us a Message</h3>
               
               <form onSubmit={handleSubmit(onSubmit)} className="space-y-5 flex flex-col grow">
                 {/* Name Fields Row */}

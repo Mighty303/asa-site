@@ -268,9 +268,9 @@ export const contactPageContent = {
     'You can expect a response in 1-7 business days.',
   ],
   form: {
-    firstName: { label: 'First Name *', placeholder: '' },
-    lastName: { label: 'Last Name *', placeholder: '' },
-    email: { label: 'Email *', placeholder: '' },
+    firstName: { label: 'First Name', placeholder: '' },
+    lastName: { label: 'Last Name', placeholder: '' },
+    email: { label: 'Email', placeholder: '' },
     subject: { label: 'Subject', placeholder: '' },
     message: { label: 'Leave us a message...', placeholder: '' },
     submitButton: 'Submit',
