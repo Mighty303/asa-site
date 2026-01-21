@@ -29,7 +29,7 @@ export const footerContent: FooterContent = {
 
 // Tax Program CTA content - used on home page
 export const taxProgramCTAContent: TaxProgramCTAContent = {
-  heading: 'JOIN OUR FREE TAX PROGRAM!',
+  heading: 'Join Our Free Tax Program!',
   description: 'Get your taxes filed accurately and reliably for free by trained student volunteers today! We are now accepting CLIENT applications for the 2026 Tax Program.',
   ctaText: 'Register for Tax Program',
   ctaLink: 'https://docs.google.com/forms/d/e/1FAIpQLSdua4T4lEouP50tlToOrt83xGO3NtmBg-U0POrflaZJrVwOBQ/viewform',

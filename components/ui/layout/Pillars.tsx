@@ -30,7 +30,7 @@ const defaultPillars: Pillar[] = [
 export default function Pillars({ heading = 'Our Three Pillars', pillars = defaultPillars }: PillarsProps) {
   return (
     <section className="container mx-auto px-4 py-16 md:py-24">
-      <h2 className="text-4xl md:text-5xl font-bold text-[#28599E] text-center mb-12 uppercase">
+      <h2 className="text-4xl md:text-5xl font-bold text-[#28599E] text-center mb-12">
         {heading}
       </h2>
       

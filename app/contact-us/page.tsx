@@ -165,7 +165,7 @@ export default function ContactUs() {
             <Button 
               type="submit"
               disabled={isSubmitting}
-              className="bg-[#5293BB] hover:bg-[#3d7496] text-white font-semibold px-12 py-6 text-lg rounded-md shadow-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              className="bg-[#28599E] hover:bg-[#1d4578] text-white font-semibold px-12 py-6 text-lg rounded-full shadow-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {isSubmitting ? (
                 <>

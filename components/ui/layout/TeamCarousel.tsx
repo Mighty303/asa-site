@@ -23,7 +23,7 @@ interface TeamCarouselProps {
 export default function TeamCarousel({ title, members }: TeamCarouselProps) {
   return (
     <section className="flex flex-col items-center mx-auto w-full mb-12 px-4 md:px-6 overflow-hidden">
-      <h2 className="text-4xl font-bold uppercase text-[#28599E]">{title}</h2>
+      <h2 className="text-4xl font-bold text-[#28599E]">{title}</h2>
       
       <Carousel 
         className="w-full max-w-5xl"
