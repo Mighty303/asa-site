@@ -68,7 +68,7 @@ export default function Sponsors({ content }: SponsorsProps) {
         </div>
       </div>
     
-      <h2 className="text-4xl font-bold uppercase my-12 text-[#28599E]">
+      <h2 className="text-4xl font-bold my-12 text-[#28599E]">
         {content.heading}
       </h2>
       
