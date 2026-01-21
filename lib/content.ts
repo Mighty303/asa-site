@@ -197,6 +197,7 @@ export const sponsorsContent = {
   ],
   execTeamImage: '/assets/teams/exec-team.jpg',
   heading: 'Our Sponsors',
+  description: 'We are proud to partner with leading accounting firms and professional institutions.',
   sponsors: [
     { name: 'Deloitte', logo: '/assets/sponsors/deloitte.jpg', url: 'https://www2.deloitte.com/ca/en.html' },
     { name: 'EY', logo: '/assets/sponsors/ey.jpg', url: 'https://www.ey.com/en_ca' },
