@@ -4,6 +4,7 @@ import { client } from '@/lib/sanity'
 import { urlFor } from '@/lib/sanity'
 import Pillars from '@/components/ui/layout/Pillars'
 import Timeline from '@/components/ui/layout/Timeline'
+import EventsGrid from '@/components/ui/layout/EventsGrid'
 
 async function getHomeData() {
   const query = `{
@@ -48,6 +49,7 @@ export default async function About() {
       <Hero content={heroContent} />
       <Pillars />
       <Timeline />
+      <EventsGrid />
     </main>
   )
 }

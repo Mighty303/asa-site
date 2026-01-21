@@ -82,8 +82,8 @@ export default async function Home() {
       <AboutClub 
         description="The SFU Accounting Student Association (ASA) is an organization made up of highly-dedicated students with the mission of assisting students towards their professional life. In order to accomplish this mission, our association provides three types of services: facilitation of information and networking, self-growth, and fellowship."
       />
-      <TaxProgramCTA />
       <Sponsors content={sponsorsContent} />
+      <TaxProgramCTA />
     </main>
   )
 }
