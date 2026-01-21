@@ -2,6 +2,7 @@
 
 import { useForm } from 'react-hook-form'
 import { toast } from 'sonner'
+import { Loader2 } from 'lucide-react'
 import Hero from '@/components/ui/layout/Hero'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
@@ -166,7 +167,14 @@ export default function ContactUs() {
               disabled={isSubmitting}
               className="bg-[#5293BB] hover:bg-[#3d7496] text-white font-semibold px-12 py-6 text-lg rounded-md shadow-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              {isSubmitting ? contactPageContent.form.submittingButton : contactPageContent.form.submitButton}
+              {isSubmitting ? (
+                <>
+                  <Loader2 className="mr-2 h-5 w-5 animate-spin" />
+                  {contactPageContent.form.submittingButton}
+                </>
+              ) : (
+                contactPageContent.form.submitButton
+              )}
             </Button>
           </div>
         </form>
