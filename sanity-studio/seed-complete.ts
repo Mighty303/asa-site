@@ -42,6 +42,10 @@ async function deleteAllDocuments() {
     'sponsor',
     'stat',
     'page',
+    'aboutPage',
+    'taxProgramPage',
+    'contactPage',
+    'event',
   ]
 
   for (const type of types) {
@@ -116,37 +120,43 @@ async function seedCompleteData() {
     console.log('✅ Home page created')
 
     // About Page
-    console.log('📖 Creating about page...')
+    console.log('📖 Creating about page content...')
     await client.createOrReplace({
-      _type: 'page',
-      _id: 'about-page',
-      title: 'About',
-      slug: { _type: 'slug', current: 'about' },
-      heroTagline: ['ABOUT US'],
+    _type: 'aboutPage',
+    _id: 'about-page',
+    title: 'About',
+    slug: { _type: 'slug', current: 'about' },
+    heroTagline: ['ABOUT US'],
+    pillarsHeading: 'Our Three Pillars',
+    pillars: [
+        {
+        _key: 'aspire',
+        title: 'ASPIRE',
+        description: "Our external service – we work with our sponsors from various accounting designations and firms to plan and host information and networking sessions that foster students' knowledge of the accounting industry and enhance career decision-making.",
+        bgColor: '#7FA5DF',
+        },
+        {
+        _key: 'share',
+        title: 'SHARE',
+        description: 'Our community service – ASA is a platform for students to interact and learn from one another in a casual and social environment. We engage students at a social level to introduce students to the accounting industry and break down the misconceptions of accounting as a monotonous career.',
+        bgColor: '#466CCC',
+        },
+        {
+        _key: 'achieve',
+        title: 'ACHIEVE',
+        description: 'Our internal service – ASA recognizes that academic excellence alone will not guarantee a successful career. Other qualities, such as leadership, time management and interpersonal skills are also as important. Thus, our association encourages the improvement of these qualities by giving members opportunities to project manage and volunteer at ASA events.',
+        bgColor: '#1D3B87',
+        },
+    ],
     })
     console.log('✅ About page created')
 
     // Tax Program Page
-    console.log('💼 Creating tax program page...')
-    await client.createOrReplace({
-      _type: 'page',
-      _id: 'tax-program-page',
-      title: 'Tax Program',
-      slug: { _type: 'slug', current: 'tax-program' },
-      heroTagline: ['TAX PROGRAM'],
-    })
-    console.log('✅ Tax program page created')
+    console.log('💼 Skipping basic tax program page (using taxProgramPage type instead)...')
+
 
     // Contact Page
-    console.log('📧 Creating contact page...')
-    await client.createOrReplace({
-      _type: 'page',
-      _id: 'contact-page',
-      title: 'Contact Us',
-      slug: { _type: 'slug', current: 'contact' },
-      heroTagline: ['CONTACT US'],
-    })
-    console.log('✅ Contact page created')
+    console.log('📧 Skipping basic contact page (using contactPage type instead)...')
 
     // Stats
     console.log('📊 Creating stats...')
@@ -428,10 +438,249 @@ async function seedCompleteData() {
     
     console.log(`✅ Team members created: ${uploadedCount} uploaded, ${skippedCount} skipped`)
 
+    // About Page
+    console.log('📖 Creating about page content...')
+    await client.createOrReplace({
+      _type: 'aboutPage',
+      _id: 'about-page',
+      title: 'About',
+      slug: { _type: 'slug', current: 'about' },
+      heroTagline: ['ABOUT US'],
+      pillarsHeading: 'Our Three Pillars',
+      pillars: [
+        {
+          title: 'ASPIRE',
+          description: "Our external service – we work with our sponsors from various accounting designations and firms to plan and host information and networking sessions that foster students' knowledge of the accounting industry and enhance career decision-making.",
+          bgColor: '#7FA5DF',
+        },
+        {
+          title: 'SHARE',
+          description: 'Our community service – ASA is a platform for students to interact and learn from one another in a casual and social environment. We engage students at a social level to introduce students to the accounting industry and break down the misconceptions of accounting as a monotonous career.',
+          bgColor: '#466CCC',
+        },
+        {
+          title: 'ACHIEVE',
+          description: 'Our internal service – ASA recognizes that academic excellence alone will not guarantee a successful career. Other qualities, such as leadership, time management and interpersonal skills are also as important. Thus, our association encourages the improvement of these qualities by giving members opportunities to project manage and volunteer at ASA events.',
+          bgColor: '#1D3B87',
+        },
+      ],
+    })
+    console.log('✅ About page created')
+
+    // Events
+    console.log('📅 Creating events...')
+    const eventsData = [
+      {
+        title: 'MIX & MINGLE',
+        subtitle: 'Networking Event',
+        description: 'Our signature networking event, Mix & Mingle, launches Spring Recruit by giving students and firm representatives the opportunity to build meaningful connections before the interview and offer phases in May and June.',
+        image: 'events/mix-mingle.jpg',
+        date: 'September',
+        order: 1,
+      },
+      {
+        title: 'MIDSUMMER MIXER',
+        subtitle: 'Networking Event',
+        description: 'With Fall Recruit approaching, our annual Midsummer Mixer helps guide students through the final major recruiting season of the year, offering chances to build new connections with professionals.',
+        image: 'events/midsummer.jpg',
+        date: 'October',
+        order: 2,
+      },
+      {
+        title: 'HARVEST HORIZONS',
+        subtitle: 'Networking Event',
+        description: 'A low-barrier and casual networking event, Harvest Horizons offers a relaxed evening for students and firms to connect and build relationships in a comfortable setting.',
+        image: 'events/harvest-horizons.jpg',
+        date: 'October',
+        order: 3,
+      },
+      {
+        title: 'MIDSIZE MOTION',
+        subtitle: 'Networking Event',
+        description: 'Midsize Motion brings together students and representatives from midsize and growth-oriented accounting firms to foster genuine conversations and meaningful connections.',
+        image: 'events/midsize-motion.jpg',
+        date: 'November',
+        order: 4,
+      },
+      {
+        title: 'MENTORSHIP PROGRAM',
+        subtitle: 'Skills-Development Initiative',
+        description: 'The ASA Mentorship Program (AMP) connects junior accounting students with experienced senior students and industry professionals from October to December.',
+        image: 'events/mentorship.jpg',
+        date: 'January – April',
+        order: 5,
+      },
+      {
+        title: 'ACHIEVE',
+        subtitle: 'Case Competition',
+        description: "ASA's ACHIEVE Case Competition invites both beginner and experienced case competitors to tackle a unique accounting-focused case, partnering with CPABC and Big Four firms.",
+        image: 'events/achieve.jpg',
+        date: 'March',
+        order: 6,
+      },
+    ]
+
+    for (const event of eventsData) {
+      const eventImagePath = path.join(assetsDir, event.image)
+      if (fs.existsSync(eventImagePath)) {
+        const eventImage = await uploadImage(eventImagePath, event.image)
+        await client.createOrReplace({
+          _type: 'event',
+          _id: `event-${event.order}`,
+          title: event.title,
+          subtitle: event.subtitle,
+          description: event.description,
+          image: {
+            _type: 'image',
+            asset: {
+              _type: 'reference',
+              _ref: eventImage._id,
+            },
+          },
+          date: event.date,
+          order: event.order,
+        })
+      }
+    }
+    console.log('✅ Events created')
+
+    // Tax Program Page
+    console.log('💼 Creating tax program page content...')
+    const taxImages: any = {}
+    const taxImagePaths = [
+      { key: 'hero', path: 'teams/tax-program/tax-hero.jpg' },
+      { key: 'eligible', path: 'teams/tax-program/eligible.jpg' },
+      { key: 'eligible2', path: 'teams/tax-program/eligible-2.jpg' },
+      { key: 'volunteers', path: 'teams/tax-program/volunteers.jpg' },
+    ]
+
+    for (const img of taxImagePaths) {
+      const fullPath = path.join(assetsDir, img.path)
+      if (fs.existsSync(fullPath)) {
+        taxImages[img.key] = await uploadImage(fullPath, path.basename(img.path))
+      }
+    }
+
+    await client.createOrReplace({
+      _type: 'taxProgramPage',
+      _id: 'tax-program-page',
+      title: 'Tax Program',
+      slug: { _type: 'slug', current: 'tax-program' },
+      heroTagline: ['TAX PROGRAM'],
+      introHeading: 'What is the Tax Program?',
+      introDescription: 'The ASA Tax Program is a free tax filing service for eligible SFU community members. Our dedicated student volunteers are trained by the Canada Revenue Agency (CRA) to prepare income tax returns for those with low income and simple, non-complex tax situations.',
+      ...(taxImages.hero && {
+        introImage: {
+          _type: 'image',
+          asset: { _type: 'reference', _ref: taxImages.hero._id },
+        },
+      }),
+      statNumber: '800+',
+      statDescription: 'Returns filed last year, helping over 1,000 members of the SFU community',
+      registrationStatusText: '2026 Client Applications Now Open!',
+      registrationDeadline: 'February 20th, 2026 at 11:59 PM',
+      questionsHeading: 'Are you:',
+      questions: [
+        'Having trouble filing your tax returns?',
+        'Never filed a tax return before?',
+        "Don't have time to file?",
+      ],
+      volunteerMessage: 'Our ASA tax volunteers are here for you!',
+      ctaText: 'Register Now',
+      ctaLink: 'https://docs.google.com/forms/d/e/1FAIpQLSdua4T4lEouP50tlToOrt83xGO3NtmBg-U0POrflaZJrVwOBQ/viewform',
+      sideDescription: 'Register to be a client and have your tax returns filed by dedicated volunteers trained by the Canada Revenue Agency (CRA) and SFU Accounting Student Association (ASA). We help preserve benefits and financial entitlements while providing peace of mind for meeting tax filing obligations.',
+      eligibilityHeading: 'Eligibility Criteria',
+      eligibilitySubtitle: 'You may qualify if your income fits within the following limits:',
+      ...(taxImages.eligible && {
+        incomeThresholdsImage: {
+          _type: 'image',
+          asset: { _type: 'reference', _ref: taxImages.eligible._id },
+        },
+      }),
+      incomeThresholdsHeading: 'Income Thresholds',
+      incomeThresholds: [
+        'Single Person: $40,000 or less',
+        'Couple (no dependents): $55,000 or less',
+        'Three-person family: $60,000 or less',
+        'Four-person family: $65,000 or less',
+        'Five-person family: $70,000 or less',
+      ],
+      ...(taxImages.eligible2 && {
+        additionalInfoImage: {
+          _type: 'image',
+          asset: { _type: 'reference', _ref: taxImages.eligible2._id },
+        },
+      }),
+      additionalInfoHeading: 'Additional Information',
+      additionalInfoItems: [
+        'Each additional dependent: +$2,500 allowed income',
+        'Interest income must be under $1,200',
+      ],
+      additionalInfoNote: "Have a spouse/partner? Register them separately, but mention each other's names in the appropriate section.",
+      exclusionsHeading: 'What We Cannot Help With',
+      exclusionsSubtitle: 'Volunteers do not complete returns with the following:',
+      ...(taxImages.volunteers && {
+        exclusionsImage: {
+          _type: 'image',
+          asset: { _type: 'reference', _ref: taxImages.volunteers._id },
+        },
+      }),
+      exclusionItems: [
+        'Business or rental income/expenses',
+        'Self-employed individuals or employment expenses',
+        "Deceased persons' tax returns",
+        'Capital gains or losses',
+        'Major investments (RRSP, stocks, mutual funds, RESP)',
+        'Investments outside Canada',
+        'Foreign income',
+        'Bankruptcy filings',
+        'Non-residents during the tax year',
+      ],
+      footerCTAHeading: 'Ready to Get Started?',
+      footerCTADateText: 'Taxes will be filed March 8 - April 30, 2026',
+      footerCTAText: 'Register as Client',
+      footerCTALink: 'https://docs.google.com/forms/d/e/1FAIpQLSdua4T4lEouP50tlToOrt83xGO3NtmBg-U0POrflaZJrVwOBQ/viewform',
+      craText: 'For further information, visit the',
+      craLink: 'https://www.canada.ca/en/revenue-agency.html',
+      contactText: 'Questions? Contact us at',
+      contactEmail: 'sfutax@gmail.com',
+    })
+    console.log('✅ Tax program page created')
+
+    // Contact Page
+    console.log('📧 Creating contact page content...')
+    await client.createOrReplace({
+      _type: 'contactPage',
+      _id: 'contact-page',
+      title: 'Contact Us',
+      slug: { _type: 'slug', current: 'contact-us' },
+      heroTagline: ['CONTACT US'],
+      heading: 'Contact Us',
+      introText: [
+        'Thank you for contacting the SFU Accounting Student Association.',
+        'Please submit your inquiry using the form below.',
+        'You can expect a response in 1-7 business days.',
+      ],
+      submissionNote: "*Submissions are directly sent to the ASA President's inbox",
+      emailHeading: 'Prefer Email?',
+      emailText: 'You may also contact us at',
+      emailAddress: 'sfuasa.pres@gmail.com',
+      taxProgramHeading: 'Questions About Our Tax Program?',
+      taxProgramText: 'Reach our Project Managers at',
+      taxProgramEmail: 'sfutax@gmail.com',
+      socialMediaHeading: 'Social Media',
+      socialMediaText: 'Stay connected with us on',
+    })
+    console.log('✅ Contact page created')
+
     console.log('🎉 Complete data seed finished successfully!')
     console.log('\n📝 Summary:')
     console.log('  - Site settings ✓')
     console.log('  - 4 pages (Home, About, Tax Program, Contact) ✓')
+    console.log('  - About page with 3 pillars ✓')
+    console.log('  - Tax program page with full content ✓')
+    console.log('  - Contact page with full content ✓')
+    console.log('  - 6 events ✓')
     console.log('  - 3 stats ✓')
     console.log('  - 11 sponsors ✓')
     console.log('  - 3 social media links ✓')
