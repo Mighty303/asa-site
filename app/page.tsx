@@ -24,7 +24,8 @@ async function getHomeData() {
     },
     "siteSettings": *[_type == "siteSettings"][0] {
       logo,
-      footerBackground
+      footerBackground,
+      defaultTeamImage
     }
   }`
   
@@ -47,9 +48,16 @@ export default async function Home() {
   const data = await getHomeData()
   
   // Transform home page data
+  // Use page-specific heroTeamImage if available, otherwise fall back to siteSettings defaultTeamImage, then static fallback
+  const teamImage = data.homePage?.heroTeamImage 
+    ? urlFor(data.homePage.heroTeamImage).url()
+    : data.siteSettings?.defaultTeamImage
+    ? urlFor(data.siteSettings.defaultTeamImage).url()
+    : '/assets/home/team.jpg'
+  
   const homeHeroContent = {
     tagline: data.homePage?.heroTagline || ['ACCOUNTING STUDENT ASSOCIATION (ASA)'],
-    teamImage: data.homePage?.heroTeamImage ? urlFor(data.homePage.heroTeamImage).url() : '/assets/home/team.jpg',
+    teamImage,
   }
 
   // Prioritize Sanity data, fallback to content.ts

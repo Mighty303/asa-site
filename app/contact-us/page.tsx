@@ -1,6 +1,6 @@
 import Hero from '@/components/ui/layout/Hero'
 import ContactForm from '@/components/ui/layout/ContactForm'
-import { client } from '@/lib/sanity'
+import { client, urlFor } from '@/lib/sanity'
 
 async function getContactData() {
   const query = `{
@@ -8,6 +8,9 @@ async function getContactData() {
     "socialMedia": *[_type == "socialMedia"] | order(order asc) {
       name,
       url
+    },
+    "siteSettings": *[_type == "siteSettings"][0] {
+      defaultTeamImage
     }
   }`
   
@@ -18,8 +21,13 @@ export default async function ContactUs() {
   const data = await getContactData()
   
   // Transform contact page data
+  const teamImage = data.siteSettings?.defaultTeamImage
+    ? urlFor(data.siteSettings.defaultTeamImage).url()
+    : '/assets/home/team.jpg'
+  
   const contactHeroContent = {
     tagline: data.contactPage?.heroTagline || ['CONTACT US'],
+    teamImage,
   }
 
   const contactPageContent = {

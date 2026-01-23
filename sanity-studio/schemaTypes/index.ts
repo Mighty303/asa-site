@@ -179,6 +179,22 @@ const siteSettings = defineType({
       type: 'string',
     }),
     defineField({
+      name: 'siteDescription',
+      title: 'Site Description (SEO)',
+      description: 'Used for SEO meta description and social media previews',
+      type: 'text',
+      validation: (Rule) => Rule.max(160).warning('SEO descriptions should be under 160 characters'),
+    }),
+    defineField({
+      name: 'defaultTeamImage',
+      title: 'Default Team Image',
+      description: 'Team image used across all pages for hero sections and social media previews',
+      type: 'image',
+      options: {
+        hotspot: true,
+      },
+    }),
+    defineField({
       name: 'logo',
       title: 'Site Logo',
       type: 'image',
