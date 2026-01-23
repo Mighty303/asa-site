@@ -344,7 +344,7 @@ async function seedCompleteData() {
     
     // External Relations
     const externalTeam = [
-      { name: 'Jaymar', role: 'External Director', photo: 'external/jaymar.jpg', section: 'external', order: 1 },
+      { name: 'Jaymar', role: 'Director', photo: 'external/jaymar.jpg', section: 'external', order: 1 },
       { name: 'Ehsan', role: 'Coordinator', photo: 'external/ehsan.jpg', section: 'external', order: 2 },
       { name: 'Quan', role: 'Coordinator', photo: 'external/quan.jpg', section: 'external', order: 3 },
       { name: 'Patty', role: 'Coordinator', photo: 'external/patty.jpg', section: 'external', order: 4 },
@@ -384,9 +384,9 @@ async function seedCompleteData() {
     // Finance Team
     const financeTeam = [
       { name: 'Sandy', role: 'Director', photo: 'finance/sandy.jpg', section: 'finance', order: 1 },
-      { name: 'Justin', role: 'Finance Co-Director', photo: 'finance/justin.jpg', section: 'finance', order: 2 },
-      { name: 'Jessie', role: 'Finance Coordinator', photo: 'finance/jessie.jpg', section: 'finance', order: 3 },
-      { name: 'Solomon', role: 'Finance Coordinator', photo: 'finance/solomon.jpg', section: 'finance', order: 4 },
+      { name: 'Justin', role: 'Co-Director', photo: 'finance/justin.jpg', section: 'finance', order: 2 },
+      { name: 'Jessie', role: 'Coordinator', photo: 'finance/jessie.jpg', section: 'finance', order: 3 },
+      { name: 'Solomon', role: 'Coordinator', photo: 'finance/solomon.jpg', section: 'finance', order: 4 },
     ]
     
     // Combine all teams

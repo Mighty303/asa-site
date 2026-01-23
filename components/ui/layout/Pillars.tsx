@@ -42,8 +42,12 @@ export default function Pillars({ heading = 'Our Three Pillars', pillars = defau
             style={{ backgroundColor: pillar.bgColor }}
           >
             <h3 className="text-3xl md:text-4xl font-bold text-white mb-6">{pillar.title}</h3>
-            <p className="text-white leading-relaxed text-left">
-              {pillar.description}
+            <p className="text-white leading-relaxed text-left" style={{ 
+              textWrap: 'balance',
+              wordBreak: 'normal',
+              overflowWrap: 'anywhere'
+            }}>
+              {pillar.description.replace(/\s+/g, ' ').trim()}
             </p>
           </div>
         ))}

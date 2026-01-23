@@ -340,7 +340,7 @@ export const eventTeamMembers = [
 ]
 
 export const externalRelationsMembers = [
-  { name: "Jaymar", role: "External Director", photo: "/assets/teams/external/jaymar.jpg" },
+  { name: "Jaymar", role: "Director", photo: "/assets/teams/external/jaymar.jpg" },
   { name: "Ehsan", role: "Coordinator", photo: "/assets/teams/external/ehsan.jpg" },
   { name: "Quan", role: "Coordinator", photo: "/assets/teams/external/quan.jpg" },
   { name: "Patty", role: "Coordinator", photo: "/assets/teams/external/patty.jpg" },
@@ -376,7 +376,7 @@ export const marketingTeamMembers = [
 
 export const financeTeamMembers = [
   { name: "Sandy", role: "Director", photo: "/assets/teams/finance/sandy.jpg" },
-  { name: "Justin", role: "Finance Co-Director", photo: "/assets/teams/finance/justin.jpg" },
-  { name: "Jessie", role: "Finance Coordinator", photo: "/assets/teams/finance/jessie.jpg" },
-  { name: "Solomon", role: "Finance Coordinator", photo: "/assets/teams/finance/solomon.jpg" },
+  { name: "Justin", role: "Co-Director", photo: "/assets/teams/finance/justin.jpg" },
+  { name: "Jessie", role: "Coordinator", photo: "/assets/teams/finance/jessie.jpg" },
+  { name: "Solomon", role: "Coordinator", photo: "/assets/teams/finance/solomon.jpg" },
 ]

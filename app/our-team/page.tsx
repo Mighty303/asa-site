@@ -61,7 +61,7 @@ async function getTeamData() {
   }`
   
   try {
-    const data = await client.fetch(query)
+    const data = await client.fetch(query, {}, { cache: 'no-store' })
     return data
   } catch (error) {
     console.error('Error fetching team data:', error)
@@ -136,7 +136,7 @@ export default async function Team() {
       
       {/* Full Team Section */}
       <section className="relative min-h-screen">
-        <div className="container flex flex-col md:flex-row justify-center items-center gap-8 mx-auto px-4 pt-32 pb-20">
+        <div className="container flex flex-col-reverse md:flex-row justify-center items-center gap-8 mx-auto px-4 pt-32 pb-12 md:pb-20">
           <div className="flex-1 flex justify-center">
             {data.page?.fullTeamImage ? (
               <Image 
@@ -158,7 +158,7 @@ export default async function Team() {
         </div>
 
         {/* Executive Team Section */}
-        <div className="container flex flex-col md:flex-row-reverse justify-center items-center gap-8 mx-auto px-4 pt-32 pb-20">
+        <div className="container flex flex-col-reverse md:flex-row-reverse justify-center items-center gap-8 mx-auto px-4 pt-32 pb-12 md:pb-20">
           <div className="flex-1 flex justify-center">
             {data.page?.executiveTeamImage ? (
               <Image 
