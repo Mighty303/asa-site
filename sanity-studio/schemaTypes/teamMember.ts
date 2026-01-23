@@ -33,7 +33,13 @@ export const teamMember = defineType({
         list: [
           { title: 'Presidents', value: 'presidents' },
           { title: 'Executive Team', value: 'executive' },
-          { title: 'Full Team', value: 'full-team' }
+          { title: 'Full Team', value: 'full-team' },
+          { title: 'Event Team', value: 'eventTeam' },
+          { title: 'External Relations Team', value: 'externalRelations' },
+          { title: 'Internal Relations Team', value: 'internalRelations' },
+          { title: 'Design Team', value: 'designTeam' },
+          { title: 'Marketing Team', value: 'marketingTeam' },
+          { title: 'Finance Team', value: 'financeTeam' }
         ]
       },
       validation: Rule => Rule.required()

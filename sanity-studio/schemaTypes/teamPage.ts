@@ -57,5 +57,56 @@ export default defineType({
         hotspot: true,
       },
     }),
+    defineField({
+      name: 'headingFullTeam',
+      title: 'Full Team Heading',
+      type: 'string',
+    }),
+    defineField({
+      name: 'headingExecutiveTeam',
+      title: 'Executive Team Heading',
+      type: 'string',
+    }),
+    defineField({
+      name: 'headingPresidents',
+      title: 'Presidents Heading',
+      type: 'string',
+    }),
+    defineField({
+      name: 'headingEventTeam',
+      title: 'Event Team Heading',
+      type: 'string',
+    }),
+    defineField({
+      name: 'headingExternalRelations',
+      title: 'External Relations Team Heading',
+      type: 'string',
+    }),
+    defineField({
+      name: 'headingInternalRelations',
+      title: 'Internal Relations Team Heading',
+      type: 'string',
+    }),
+    defineField({
+      name: 'headingDesignTeam',
+      title: 'Design Team Heading',
+      type: 'string',
+    }),
+    defineField({
+      name: 'headingMarketingTeam',
+      title: 'Marketing Team Heading',
+      type: 'string',
+    }),
+    defineField({
+      name: 'headingFinanceTeam',
+      title: 'Finance Team Heading',
+      type: 'string',
+    }),
+    defineField({
+      name: 'blockquote',
+      title: 'Blockquote',
+      type: 'text',
+      description: 'Quote below the Presidents section',
+    }),
   ],
 })

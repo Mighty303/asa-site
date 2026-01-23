@@ -20,6 +20,9 @@ export default defineConfig({
               .title('Page')
               .child(S.documentTypeList('page')),
             S.listItem()
+              .title('Home Page')
+              .child(S.documentTypeList('homePage')),
+            S.listItem()
               .title('About Page')
               .child(S.documentTypeList('aboutPage')),
             S.listItem()

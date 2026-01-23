@@ -1,49 +1,64 @@
 import Hero from '@/components/ui/layout/Hero'
-import Sponsors from '@/components/ui/layout/Sponsors'
 import { client } from '@/lib/sanity'
 import { urlFor } from '@/lib/sanity'
 import Pillars from '@/components/ui/layout/Pillars'
-import Timeline from '@/components/ui/layout/Timeline'
 import EventsGrid from '@/components/ui/layout/EventsGrid'
-import { 
-  aboutHeroContent, 
-  pillarsContent, 
-  timelineContent, 
-  eventsContent 
-} from '@/lib/content'
+import { Event } from '@/components/ui/layout/EventsGrid'
 
-async function getHomeData() {
+async function getAboutData() {
   const query = `{
-    "page": *[_type == "page" && slug.current == "home"][0] {
+    "aboutPage": *[_type == "aboutPage" && slug.current == "about"][0] {
       ...,
-      heroImage,
-      logo
+      pillars
     },
-    "stats": *[_type == "stat"] | order(order asc),
-    "sponsors": *[_type == "sponsor"] | order(order asc) {
+    "events": *[_type == "event"] | order(order asc) {
       ...,
-      logo
-    },
-    "socialMedia": *[_type == "socialMedia"] | order(order asc) {
-      ...,
-      icon
-    },
-    "siteSettings": *[_type == "siteSettings"][0] {
-      logo,
-      footerBackground
+      image
     }
   }`
   
   return client.fetch(query)
 }
 
-
 export default async function About() {
-  const data = await getHomeData()
+  const data = await getAboutData()
   
-  // Now you can use urlFor() to get image URLs:
-  // urlFor(data.page.heroImage).url()
-  // urlFor(data.sponsors[0].logo).width(200).url()
+  // Transform about page data
+  const aboutHeroContent = {
+    tagline: data.aboutPage?.heroTagline || ['ABOUT US'],
+  }
+
+  interface Pillar {
+    title?: string
+    description?: string
+    bgColor?: string
+  }
+
+  interface SanityEvent {
+    title?: string
+    subtitle?: string
+    description?: string
+    image?: any
+    date?: string
+  }
+
+  const pillarsContent = {
+    heading: data.aboutPage?.pillarsHeading || 'Our Three Pillars',
+    pillars: data.aboutPage?.pillars?.map((pillar: Pillar) => ({
+      title: pillar.title || '',
+      description: pillar.description || '',
+      bgColor: pillar.bgColor || '#7FA5DF',
+    })) || [],
+  }
+
+  // Transform events data
+  const eventsContent: Event[] = data.events?.map((event: SanityEvent) => ({
+    title: event.title || '',
+    subtitle: event.subtitle || '',
+    description: event.description || '',
+    image: event.image ? urlFor(event.image).url() : '',
+    date: event.date || '',
+  })) || []
   
   return (
     <main className="min-h-screen">

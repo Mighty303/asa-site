@@ -6,6 +6,7 @@ import { contactPage } from './contactPage.js'
 import { event } from './event.js'
 import { teamMember } from './teamMember.js'
 import teamPage from './teamPage.js'
+import { homePage } from './homePage'
 
 const page = defineType({
   name: 'page',
@@ -207,5 +208,6 @@ export const schemaTypes: SchemaTypeDefinition[] = [
   aboutPage,
   taxProgramPage,
   contactPage,
-  event
+  event,
+  homePage
 ]

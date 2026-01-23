@@ -4,19 +4,14 @@ import Sponsors from '@/components/ui/layout/Sponsors'
 import TaxProgramCTA from '@/components/ui/layout/TaxProgramCTA'
 import { client } from '@/lib/sanity'
 import { urlFor } from '@/lib/sanity'
-import { 
-  homeHeroContent, 
-  sponsorsContent, 
-  aboutClubContent,
-  taxProgramCTAContent 
-} from '@/lib/content'
+import { taxProgramCTAContent, aboutClubContent } from '@/lib/content'
 
 async function getHomeData() {
   const query = `{
-    "page": *[_type == "page" && slug.current == "home"][0] {
+    "homePage": *[_type == "homePage" && slug.current == "home"][0] {
       ...,
-      heroImage,
-      logo
+      heroTeamImage,
+      taxProgramCTAImage
     },
     "stats": *[_type == "stat"] | order(order asc),
     "sponsors": *[_type == "sponsor"] | order(order asc) {
@@ -39,19 +34,62 @@ async function getHomeData() {
 export default async function Home() {
   const data = await getHomeData()
   
-  // Now you can use urlFor() to get image URLs:
-  // urlFor(data.page.heroImage).url()
-  // urlFor(data.sponsors[0].logo).width(200).url()
+  // Transform home page data
+  const homeHeroContent = {
+    tagline: data.homePage?.heroTagline || ['ACCOUNTING STUDENT ASSOCIATION (ASA)'],
+    teamImage: data.homePage?.heroTeamImage ? urlFor(data.homePage.heroTeamImage).url() : '/assets/home/team.jpg',
+  }
+
+  const aboutClubContentData = {
+    heading: data.homePage?.aboutClubHeading || aboutClubContent.heading,
+    description: data.homePage?.aboutClubDescription || aboutClubContent.description,
+  }
+
+  const taxProgramCTAContentData = {
+    heading: data.homePage?.taxProgramCTAHeading || taxProgramCTAContent.heading,
+    description: data.homePage?.taxProgramCTADescription || taxProgramCTAContent.description,
+    ctaText: data.homePage?.taxProgramCTAText || taxProgramCTAContent.ctaText,
+    ctaLink: data.homePage?.taxProgramCTALink || taxProgramCTAContent.ctaLink,
+    image: data.homePage?.taxProgramCTAImage ? urlFor(data.homePage.taxProgramCTAImage).url() : taxProgramCTAContent.image,
+    imageAlt: data.homePage?.taxProgramCTAImageAlt || taxProgramCTAContent.imageAlt,
+  }
+
+  // Transform sponsors data
+  interface Stat {
+    number?: string
+    description?: string
+  }
+
+  interface Sponsor {
+    name?: string
+    logo?: unknown
+    url?: string
+  }
+
+  const sponsorsContent = {
+    stats: data.stats?.map((stat: Stat) => ({
+      number: stat.number || '',
+      description: stat.description || '',
+    })) || [],
+    execTeamImage: '/assets/teams/exec-team.jpg',
+    heading: data.homePage?.sponsorsHeading || 'Our Sponsors',
+    description: data.homePage?.sponsorsDescription || 'We are proud to partner with leading accounting firms and professional institutions.',
+    sponsors: data.sponsors?.map((sponsor: Sponsor) => ({
+      name: sponsor.name || '',
+      logo: sponsor.logo ? urlFor(sponsor.logo).url() : '',
+      url: sponsor.url || '',
+    })) || [],
+  }
   
   return (
     <main className="min-h-screen">
       <Hero content={homeHeroContent} reverseOnMobile />
       <AboutClub 
-        heading={aboutClubContent.heading}
-        description={aboutClubContent.description}
+        heading={aboutClubContentData.heading}
+        description={aboutClubContentData.description}
       />
       <Sponsors content={sponsorsContent} />
-      <TaxProgramCTA content={taxProgramCTAContent} />
+      <TaxProgramCTA content={taxProgramCTAContentData} />
     </main>
   )
 }
