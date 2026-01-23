@@ -23,7 +23,7 @@ export default function Navbar() {
           <Link href="/" className="text-white text-md md:text-lg">Accounting Student Association</Link>
         </div>
         
-        <div className="hidden md:flex gap-8 text-white text-lg">
+        <div className="hidden lg:flex gap-8 text-white text-lg">
           <Link href="/" className="hover:underline hover:underline-offset-6 hover:decoration-2">Home</Link>
           <Link href="/about" className="hover:underline hover:underline-offset-6 hover:decoration-2">About</Link>
           <Link href="/our-team" className="hover:underline hover:underline-offset-6 hover:decoration-2">Our Team</Link>
@@ -31,7 +31,7 @@ export default function Navbar() {
           <Link href="/contact-us" className="hover:underline hover:underline-offset-6 hover:decoration-2">Contact Us</Link>
         </div>
 
-        <div className="md:hidden">
+        <div className="lg:hidden">
           <HamburgerIcon onToggle={toggleMobileMenu} isOpen={isMobileMenuOpen} />
         </div>
 

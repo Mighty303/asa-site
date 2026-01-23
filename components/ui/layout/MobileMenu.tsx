@@ -8,7 +8,7 @@ interface MobileMenuProps {
 
 export default function MobileMenu({ onClose }: MobileMenuProps) {
   return (
-    <div className="fixed inset-0 top-22 bg-black/50 backdrop-blur-sm md:hidden z-40">
+    <div className="fixed inset-0 top-22 bg-black/50 backdrop-blur-sm lg:hidden z-40">
       <div className="bg-[#5293BB] backdrop-blur-md shadow-lg">
         <div className="flex flex-col text-white text-lg">
           <Link 
