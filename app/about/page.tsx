@@ -14,9 +14,6 @@ async function getAboutData() {
     "events": *[_type == "event"] | order(order asc) {
       ...,
       image
-    },
-    "siteSettings": *[_type == "siteSettings"][0] {
-      defaultTeamImage
     }
   }`
   
@@ -27,13 +24,8 @@ export default async function About() {
   const data = await getAboutData()
   
   // Transform about page data
-  const teamImage = data.siteSettings?.defaultTeamImage
-    ? urlFor(data.siteSettings.defaultTeamImage).url()
-    : '/assets/home/team.jpg'
-  
   const aboutHeroContent = {
     tagline: data.aboutPage?.heroTagline || ['ABOUT US'],
-    teamImage,
   }
 
   interface Pillar {

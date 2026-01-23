@@ -23,9 +23,6 @@ async function getTeamData() {
       executiveTeamImage,
       presidentsImage
     },
-    "siteSettings": *[_type == "siteSettings"][0] {
-      defaultTeamImage
-    },
     "presidents": *[_type == "teamMember" && section == "presidents"] | order(order asc) {
       name,
       role,
@@ -108,13 +105,8 @@ export default async function Team() {
   const data = await getTeamData()
   const p = data.page
 
-  const teamImage = data.siteSettings?.defaultTeamImage
-    ? urlFor(data.siteSettings.defaultTeamImage).url()
-    : '/assets/home/team.jpg'
-  
   const heroContent = {
     tagline: p?.heroTagline ?? teamPageContent.hero.tagline,
-    teamImage,
   }
 
   const headings = {

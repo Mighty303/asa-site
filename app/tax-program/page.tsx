@@ -11,9 +11,6 @@ async function getTaxProgramData() {
       incomeThresholdsImage,
       additionalInfoImage,
       exclusionsImage
-    },
-    "siteSettings": *[_type == "siteSettings"][0] {
-      defaultTeamImage
     }
   }`
   
@@ -24,13 +21,8 @@ export default async function TaxProgram() {
   const data = await getTaxProgramData()
   
   // Transform tax program page data
-  const teamImage = data.siteSettings?.defaultTeamImage
-    ? urlFor(data.siteSettings.defaultTeamImage).url()
-    : '/assets/home/team.jpg'
-  
   const taxProgramHeroContent = {
     tagline: data.taxProgramPage?.heroTagline || ['TAX PROGRAM'],
-    teamImage,
   }
 
   const taxProgramPageContent = {
