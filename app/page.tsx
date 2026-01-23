@@ -28,7 +28,19 @@ async function getHomeData() {
     }
   }`
   
-  return client.fetch(query)
+  try {
+    const data = await client.fetch(query, {}, { cache: 'no-store' })
+    return data
+  } catch (error) {
+    console.error('Error fetching home data:', error)
+    return {
+      homePage: null,
+      stats: [],
+      sponsors: [],
+      socialMedia: [],
+      siteSettings: null,
+    }
+  }
 }
 
 export default async function Home() {
@@ -40,18 +52,19 @@ export default async function Home() {
     teamImage: data.homePage?.heroTeamImage ? urlFor(data.homePage.heroTeamImage).url() : '/assets/home/team.jpg',
   }
 
+  // Prioritize Sanity data, fallback to content.ts
   const aboutClubContentData = {
-    heading: data.homePage?.aboutClubHeading || aboutClubContent.heading,
-    description: data.homePage?.aboutClubDescription || aboutClubContent.description,
+    heading: data.homePage?.aboutClubHeading ?? aboutClubContent.heading,
+    description: data.homePage?.aboutClubDescription ?? aboutClubContent.description,
   }
 
   const taxProgramCTAContentData = {
-    heading: data.homePage?.taxProgramCTAHeading || taxProgramCTAContent.heading,
-    description: data.homePage?.taxProgramCTADescription || taxProgramCTAContent.description,
-    ctaText: data.homePage?.taxProgramCTAText || taxProgramCTAContent.ctaText,
-    ctaLink: data.homePage?.taxProgramCTALink || taxProgramCTAContent.ctaLink,
+    heading: data.homePage?.taxProgramCTAHeading ?? taxProgramCTAContent.heading,
+    description: data.homePage?.taxProgramCTADescription ?? taxProgramCTAContent.description,
+    ctaText: data.homePage?.taxProgramCTAText ?? taxProgramCTAContent.ctaText,
+    ctaLink: data.homePage?.taxProgramCTALink ?? taxProgramCTAContent.ctaLink,
     image: data.homePage?.taxProgramCTAImage ? urlFor(data.homePage.taxProgramCTAImage).url() : taxProgramCTAContent.image,
-    imageAlt: data.homePage?.taxProgramCTAImageAlt || taxProgramCTAContent.imageAlt,
+    imageAlt: data.homePage?.taxProgramCTAImageAlt ?? taxProgramCTAContent.imageAlt,
   }
 
   // Transform sponsors data
