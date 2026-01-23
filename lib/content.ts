@@ -19,12 +19,6 @@ export const footerContent: FooterContent = {
     { label: 'Tax Program', href: '/tax-program' },
     { label: 'Contact Us', href: '/contact-us' },
   ],
-  newsletter: {
-    heading: 'Join the ASA Newsletter!',
-    description: 'Sign up with your email address to receive news and updates about ASA!',
-    placeholder: 'Email Address',
-    buttonText: 'Sign Up',
-  },
 }
 
 // Tax Program CTA content - used on home page
