@@ -9,25 +9,79 @@ interface ContactFormData {
   message?: string
 }
 
+// Basic server-side validation limits
+const MAX_NAME_LENGTH = 100
+const MAX_EMAIL_LENGTH = 254
+const MAX_SUBJECT_LENGTH = 150
+const MAX_MESSAGE_LENGTH = 5000
+
+function sanitizeHeader(value: string): string {
+  // Strip CRLF to avoid basic header injection
+  return value.replace(/[\r\n\t]/g, ' ').trim()
+}
+
+function isValidEmail(email: string): boolean {
+  if (!email || email.length > MAX_EMAIL_LENGTH) return false
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+  return emailRegex.test(email)
+}
+
 export async function POST(request: NextRequest) {
   try {
-    const data: ContactFormData = await request.json()
-
-    // Validate required fields
-    if (!data.firstName || !data.lastName || !data.email) {
+    let rawBody: unknown
+    try {
+      rawBody = await request.json()
+    } catch {
       return NextResponse.json(
-        { error: 'Missing required fields' },
+        { error: 'Invalid JSON body' },
         { status: 400 }
       )
     }
 
+    const body = rawBody as Partial<ContactFormData>
+
+    const firstName = typeof body.firstName === 'string' ? body.firstName.trim() : ''
+    const lastName = typeof body.lastName === 'string' ? body.lastName.trim() : ''
+    const email = typeof body.email === 'string' ? body.email.trim() : ''
+    const subject = typeof body.subject === 'string' ? body.subject.trim() : ''
+    const message = typeof body.message === 'string' ? body.message.trim() : ''
+
+    const errors: string[] = []
+
+    // Validate required fields
+    if (!firstName) errors.push('First name is required')
+    if (!lastName) errors.push('Last name is required')
+    if (!email) errors.push('Email is required')
+
+    if (firstName.length > MAX_NAME_LENGTH) errors.push('First name is too long')
+    if (lastName.length > MAX_NAME_LENGTH) errors.push('Last name is too long')
+
     // Validate email format
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-    if (!emailRegex.test(data.email)) {
+    if (!isValidEmail(email)) {
+      errors.push('Invalid email format')
+    }
+
+    if (subject.length > MAX_SUBJECT_LENGTH) errors.push('Subject is too long')
+    if (message.length > MAX_MESSAGE_LENGTH) errors.push('Message is too long')
+
+    // Require at least some content (subject or message)
+    if (!subject && !message) {
+      errors.push('Please provide a subject or a message')
+    }
+
+    if (errors.length > 0) {
       return NextResponse.json(
-        { error: 'Invalid email format' },
+        { error: 'Validation failed', details: errors },
         { status: 400 }
       )
+    }
+
+    const data: ContactFormData = {
+      firstName,
+      lastName,
+      email,
+      subject,
+      message,
     }
 
     // Create transporter
@@ -45,8 +99,8 @@ export async function POST(request: NextRequest) {
     const mailOptions = {
       from: process.env.EMAIL_USER,
       to: process.env.EMAIL_TO || process.env.EMAIL_USER, // Where to receive contact form emails
-      replyTo: data.email,
-      subject: `[ASA Contact Form] ${data.subject || 'New Message'} - from ${data.firstName} ${data.lastName}`,
+      replyTo: sanitizeHeader(data.email),
+      subject: `[ASA Contact Form] ${sanitizeHeader(data.subject || 'New Message')} - from ${sanitizeHeader(data.firstName)} ${sanitizeHeader(data.lastName)}`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
           <h2 style="color: #28599E; border-bottom: 2px solid #28599E; padding-bottom: 10px;">
